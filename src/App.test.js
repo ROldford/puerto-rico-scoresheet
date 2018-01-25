@@ -7,3 +7,13 @@ it('renders without crashing', () => {
   ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it('has the correct header and page title', () => {});
+
+it('has a player tab bar', () => {});
+
+it('lets you add players on the tab bar', () => {});
+
+it('lets you remove players on the tab bar', () => {});
+
+// it('has the correct header', () => {});
