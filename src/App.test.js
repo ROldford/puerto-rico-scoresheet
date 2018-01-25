@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Header from './components/Header.js';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -8,7 +9,11 @@ it('renders without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('has the correct header and page title', () => {});
+it('has the correct header text and page title', () => {
+  const div = document.createElement('div');
+  const header = ReactDOM.render(<Header />, div);
+  expect(header).toContain("Puerto Rico Scoreboard");
+});
 
 it('has a player tab bar', () => {});
 
