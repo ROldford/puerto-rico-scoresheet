@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {mount, shallow} from 'enzyme';
+import {Grid} from 'react-bootstrap';
 
 // Component imports
 import App from './App';
@@ -31,9 +32,9 @@ describe('App', () => {
   });
 
   // Tests
-  it('always renders a div', () => {
-    const divs = scoresheet().find("div");
-    expect(divs.length).toBeGreaterThan(0);
+  it('always renders a Grid', () => {
+    const grids = scoresheet().find(Grid);
+    expect(grids.length).toBeGreaterThan(0);
   }); // end it
 
   it('has a Header that renders', () => {
