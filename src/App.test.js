@@ -1,24 +1,49 @@
+// Package imports
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {mount, shallow} from 'enzyme';
+
+// Component imports
 import App from './App';
 import Header from './components/Header.js';
+import ScoringInput from './components/ScoringInput.js';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
 
-it('has the correct header text and page title', () => {
-  const div = document.createElement('div');
-  const header = ReactDOM.render(<Header />, div);
-  expect(header).toContain("Puerto Rico Scoreboard");
-});
+// Basic smoke test
+describe('Basic Site Rendering', () => {
+  it('renders without crashing', () => {
+    shallow(<App />);
+  });
+}); // end describe
 
-it('has a player tab bar', () => {});
+describe('App', () => {
+  // Set up
+  let mountedScoresheet;
+  const scoresheet = () => {
+    if (!mountedScoresheet) {
+      mountedScoresheet = mount(<App />);
+    }
+    return mountedScoresheet;
+  }
 
-it('lets you add players on the tab bar', () => {});
+  beforeEach(() => {
+    mountedScoresheet = undefined;
+  });
 
-it('lets you remove players on the tab bar', () => {});
+  // Tests
+  it('always renders a div', () => {
+    const divs = scoresheet().find("div");
+    expect(divs.length).toBeGreaterThan(0);
+  }); // end it
 
-// it('has the correct header', () => {});
+  it('has a Header that renders', () => {
+    expect(scoresheet().find(Header).length).toBe(1);
+  }); // end it
+
+  it('has a ScoringInput that renders', () => {
+    expect(scoresheet().find(ScoringInput).length).toBe(1);
+  }); // end it
+}); // end describe
+
+// describe('something', () => {}); // end describe
+// it('something', () => {}); // end it
