@@ -11,12 +11,12 @@ import {Jumbotron, Card, CardSubtitle, CardTitle} from 'reactstrap';
 // );
 
 const Header = () => (
-  <Card body className="text-center">
+  <Card className="text-center">
     <CardTitle>
-      <h4 className="display-4">Puerto Rico Scoresheet</h4>
+      <h4>Puerto Rico Scoresheet</h4>
     </CardTitle>
     <CardSubtitle>
-      <p className="lead">
+      <p className="lead text-muted">
         Helping you figure out how badly you lost since 2018
       </p>
     </CardSubtitle>
