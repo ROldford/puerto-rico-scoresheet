@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Container, Row, Col} from 'reactstrap';
 import Header from './components/Header';
 import ScoringInput from './components/ScoringInput';
 
@@ -7,16 +7,18 @@ import ScoringInput from './components/ScoringInput';
 class App extends Component {
   render() {
     return (
-        <Grid>
-          <Row className="show-grid">
-            <Col xs={12} md={8}>
+      <div className="scoresheet">
+        <Container fluid={true}>
+          <Row>
+            <Col>
               <Header />
             </Col>
           </Row>
-            <Col xs={12} md={8}>
+            <Col>
               <ScoringInput />
             </Col>
-        </Grid>
+        </Container>
+      </div>
     );
   }
 }
