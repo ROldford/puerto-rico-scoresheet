@@ -17,7 +17,12 @@ const Scoring = () => (
   <Container>
     <Row>
       <Col>
-        <ScorePanel titleText="Total Points" scoreValue="49" />
+        <ScorePanel 
+          titleText="Total Points" 
+          scoreValue="49" 
+          isScoreLarge={true} 
+          canChangeScore={false}
+        />
       </Col>
     </Row>
     <Row>
@@ -28,28 +33,24 @@ const Scoring = () => (
     <Row>
       <Col>
         <CardGroup>
-          <Card className="text-center">
-            <CardText>
-              <p className="text-muted">VP Chips</p>
-              <Row>
-                <Col className="text-right"><Badge href="#">+</Badge></Col>
-                <Col xs="auto"><h4>23</h4></Col>
-                <Col className="text-left"><Badge href="#">-</Badge></Col>
-              </Row>
-            </CardText>
-          </Card>
-          <Card className="text-center">
-            <CardText>
-              <p className="text-muted">Buildings</p>
-              <h4>49</h4>
-            </CardText>
-          </Card>
-          <Card className="text-center">
-            <CardText>
-              <p className="text-muted">Bonuses</p>
-              <h4>49</h4>
-            </CardText>
-          </Card>
+          <ScorePanel 
+            titleText="VP Chips" 
+            scoreValue="49" 
+            isScoreLarge={false} 
+            canChangeScore={true}
+          />
+          <ScorePanel 
+            titleText="Buildings" 
+            scoreValue="49" 
+            isScoreLarge={false} 
+            canChangeScore={false}
+          />
+          <ScorePanel 
+            titleText="Bonuses" 
+            scoreValue="49" 
+            isScoreLarge={false} 
+            canChangeScore={false}
+          />
         </CardGroup>
       </Col>
     </Row>

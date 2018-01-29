@@ -11,12 +11,17 @@ import {
   InputGroup, 
   Row
 } from 'reactstrap';
+import ScorePanelBottom from "./ScorePanelBottom";
 
 const ScorePanel = (props) => (
   <Card className="text-center">
     <CardText>
       <p className="text-muted">{props.titleText}</p>
-      <h2>{props.scoreValue}</h2>
+      <ScorePanelBottom 
+        canChangeScore={props.canChangeScore} 
+        isScoreLarge={props.isScoreLarge} 
+        scoreValue={props.scoreValue} 
+      />
     </CardText>
   </Card>
 );
