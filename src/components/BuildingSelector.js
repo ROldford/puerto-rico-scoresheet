@@ -1,7 +1,14 @@
 import React from 'react';
-import {Card, CardSubtitle, CardTitle} from 'reactstrap';
+import {
+  Card, 
+  CardSubtitle, 
+  CardTitle, 
+  Col, 
+  Container, 
+  Row
+} from 'reactstrap';
 
-const BuildingSelector = () => (
+/*const BuildingSelector = () => (
   <Card body className="text-center">
     <CardTitle>
       BuildingSelector test card
@@ -10,6 +17,29 @@ const BuildingSelector = () => (
       This is a test card for the BuildingSelector.
     </CardSubtitle>
   </Card>
+);*/
+
+const BuildingSelector = () => (
+  <Container>
+    <Row>
+      <Col>
+        <p>Building</p>
+        <p>Building</p>
+      </Col>
+      <Col>
+        <p>Building</p>
+        <p>Building</p>
+      </Col>
+      <Col>
+        <p>Building</p>
+        <p>Building</p>
+      </Col>
+      <Col>
+        <p>Building</p>
+        <p>Building</p>
+      </Col>      
+    </Row>
+  </Container>
 );
 
 export default BuildingSelector;
