@@ -11,13 +11,28 @@ import {
   InputGroup, 
   Row
 } from 'reactstrap';
-import ScorePanel from "./ScorePanel"
 
-const Scoring = () => (
+const ScorePanel = (props) => (
+  <Card className="text-center">
+    <CardText>
+      <p className="text-muted">{props.titleText}</p>
+      <h2>{props.scoreValue}</h2>
+    </CardText>
+  </Card>
+);
+
+export default ScorePanel;
+
+/*{
   <Container>
     <Row>
       <Col>
-        <ScorePanel titleText="Total Points" scoreValue="49" />
+        <Card className="text-center">
+          <CardText>
+            <p className="text-muted">Total Points</p>
+            <h2>49</h2>
+          </CardText>
+        </Card>
       </Col>
     </Row>
     <Row>
@@ -54,6 +69,4 @@ const Scoring = () => (
       </Col>
     </Row>
   </Container>
-);
-
-export default Scoring;
+}*/
