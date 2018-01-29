@@ -1,4 +1,8 @@
 .scoresheet {
-  width: 1200px;
-  margin: 35px auto;
+  width: auto;
+  margin: auto auto;
+}
+
+hr.style1{
+  border-top: 1px solid #8c8b8b;
 }
