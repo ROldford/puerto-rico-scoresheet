@@ -26,28 +26,4 @@ function ScorePanelBottom(props) {
   }
 }
 
-// const ScorePanelBottom = (props) => (
-//   {
-//     props.isScoreLarge ?
-//     <h2>{props.scoreValue}</h2> :
-//     <h4>{props.scoreValue}</h4>
-//   }
-//     props.canChangeScore ? 
-//     <Row>
-//       <Col className="text-right"><Badge href="#">+</Badge></Col>
-//       <Col xs="auto">
-//         <ScorePanelValue 
-//           isScoreLarge={props.isScoreLarge} 
-//           scoreValue={props.scoreValue} 
-//         />
-//       </Col>
-//       <Col className="text-left"><Badge href="#">-</Badge></Col>
-//     </Row> :
-//     <ScorePanelValue 
-//       isScoreLarge={props.isScoreLarge} 
-//       scoreValue={props.scoreValue} 
-//     />
-//   }
-// );
-
 export default ScorePanelBottom;
