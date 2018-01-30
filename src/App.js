@@ -3,7 +3,6 @@ import {Container, Row, Col} from 'reactstrap';
 import Header from './components/Header';
 import BuildingSelector from './components/BuildingSelector';
 import Scoring from './components/Scoring';
-// import ScoringInput from './components/ScoringInput';
 
 const BUILDINGS_LIST = 
 [
@@ -159,7 +158,7 @@ class App extends Component {
             <Col><Scoring /></Col>
           </Row>
           <Row>
-            <Col><BuildingSelector /></Col>
+            <Col><BuildingSelector buildingsData={BUILDINGS_LIST}/></Col>
           </Row>
         </Container>
       </div>

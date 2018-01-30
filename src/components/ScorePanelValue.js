@@ -1,16 +1,4 @@
 import React from 'react';
-import {
-  Badge,
-  Card, 
-  CardGroup, 
-  CardTitle, 
-  CardText, 
-  Col, 
-  Container, 
-  Input, 
-  InputGroup, 
-  Row
-} from 'reactstrap';
 
 function ScorePanelBottom(props) {
   const isScoreLarge = props.isScoreLarge;

@@ -1,14 +1,7 @@
 import React from 'react';
 import {
-  Badge,
-  Card, 
-  CardGroup, 
-  CardTitle, 
-  CardText, 
+  Badge, 
   Col, 
-  Container, 
-  Input, 
-  InputGroup, 
   Row
 } from 'reactstrap';
 import ScorePanelValue from "./ScorePanelValue";

@@ -1,14 +1,7 @@
 import React from 'react';
 import {
-  Badge,
-  Card, 
-  CardGroup, 
-  CardTitle, 
-  CardText, 
   Col, 
   Container, 
-  Input, 
-  InputGroup, 
   Row
 } from 'reactstrap';
 import ScorePanel from "./ScorePanel"
@@ -27,31 +20,28 @@ const Scoring = () => (
     </Row>
     <Row>
       <Col>
-        <hr />
+        <ScorePanel 
+          titleText="VP Chips" 
+          scoreValue="49" 
+          isScoreLarge={false} 
+          canChangeScore={true}
+        />
       </Col>
-    </Row>
-    <Row>
       <Col>
-        <CardGroup>
-          <ScorePanel 
-            titleText="VP Chips" 
-            scoreValue="49" 
-            isScoreLarge={false} 
-            canChangeScore={true}
-          />
-          <ScorePanel 
-            titleText="Buildings" 
-            scoreValue="49" 
-            isScoreLarge={false} 
-            canChangeScore={false}
-          />
-          <ScorePanel 
-            titleText="Bonuses" 
-            scoreValue="49" 
-            isScoreLarge={false} 
-            canChangeScore={false}
-          />
-        </CardGroup>
+        <ScorePanel 
+          titleText="Buildings" 
+          scoreValue="49" 
+          isScoreLarge={false} 
+          canChangeScore={false}
+        />
+      </Col>
+      <Col>
+        <ScorePanel 
+          titleText="Bonuses" 
+          scoreValue="49" 
+          isScoreLarge={false} 
+          canChangeScore={false}
+        />
       </Col>
     </Row>
   </Container>
