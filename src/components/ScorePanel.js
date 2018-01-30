@@ -1,15 +1,31 @@
 import React from 'react';
-import ScorePanelBottom from "./ScorePanelBottom";
+import ScorePanelDisplayImmutable from "./ScorePanelDisplayImmutable";
+import ScorePanelDisplayMutable from "./ScorePanelDisplayMutable";
 
-const ScorePanel = (props) => (
-  <div className="text-center bordered-round">
-    <p className="text-muted">{props.titleText}</p>
-    <ScorePanelBottom 
-      canChangeScore={props.canChangeScore} 
-      isScoreLarge={props.isScoreLarge} 
-      scoreValue={props.scoreValue} 
-    />
-  </div>
-);
+function ScorePanel(props) {
+  const canChangeScore = props.canChangeScore;
+  let scoreDisplayCode;
+    if (canChangeScore) {
+    scoreDisplayCode = (
+      <ScorePanelDisplayMutable 
+        isScoreLarge={props.isScoreLarge} 
+        scoreValue={props.scoreValue} 
+      />
+    );
+  } else {
+    scoreDisplayCode = (
+      <ScorePanelDisplayImmutable 
+        isScoreLarge={props.isScoreLarge} 
+        scoreValue={props.scoreValue} 
+      />
+    );
+  }
+  return(
+    <div className="text-center bordered-round">
+      <p className="text-muted">{props.titleText}</p>
+      {scoreDisplayCode}
+    </div>
+  );
+}
 
 export default ScorePanel;
