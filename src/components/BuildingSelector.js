@@ -8,6 +8,7 @@ import {
   Container, 
   Row
 } from 'reactstrap';
+import BuildingColumn from "./BuildingColumn";
 import Building from "./Building";
 
 /*const BuildingSelector = () => (
@@ -21,31 +22,49 @@ import Building from "./Building";
   </Card>
 );*/
 
+const TEST_BUILDING_DATA = 
+  [
+    {
+      buildingLevel: 1,
+      buildings: [
+        {
+          buildingName: "Small Indigo Plant", 
+          buildingType: "production-small", 
+          buildingPoints: 1,
+        },
+        {
+          buildingName: "Small Sugar Mill", 
+          buildingType: "production-small", 
+          buildingPoints: 1,
+        },
+        {
+          buildingName: "Small Market", 
+          buildingType: "violet", 
+          buildingPoints: 1,
+        },
+        {
+          buildingName: "Hacienda", 
+          buildingType: "violet", 
+          buildingPoints: 1,
+        },
+        {
+          buildingName: "Construction Hut", 
+          buildingType: "violet", 
+          buildingPoints: 1,
+        },
+        {
+          buildingName: "Small Warehouse", 
+          buildingType: "violet", 
+          buildingPoints: 1,
+        }, 
+      ]
+    },
+  ];
+
 const BuildingSelector = () => (
   <Container>
     <Row>
-      <Col>
-        <Card className="text-center">
-          <CardHeader>
-            1
-          </CardHeader>
-        </Card>
-        <Building 
-          buildingName="Test 1" 
-          buildingType="violet" 
-          isBuilt={false}
-        />
-        <Building 
-          buildingName="Test 2" 
-          buildingType="production-large" 
-          isBuilt={true}
-        />
-        <Building 
-          buildingName="Test 3" 
-          buildingType="production-small" 
-          isBuilt={false}
-        />
-      </Col>
+      <BuildingColumn columnData={TEST_BUILDING_DATA[0]} />
       <Col>
         <Card className="text-center">
           <CardHeader>
@@ -117,3 +136,28 @@ const BuildingSelector = () => (
 );
 
 export default BuildingSelector;
+
+// {
+//      <Col>
+//         <Card className="text-center">
+//           <CardHeader>
+//             1
+//           </CardHeader>
+//         </Card>
+//         <Building 
+//           buildingName="Test 1" 
+//           buildingType="violet" 
+//           isBuilt={false}
+//         />
+//         <Building 
+//           buildingName="Test 2" 
+//           buildingType="production-large" 
+//           isBuilt={true}
+//         />
+//         <Building 
+//           buildingName="Test 3" 
+//           buildingType="production-small" 
+//           isBuilt={false}
+//         />
+//       </Col>
+// }

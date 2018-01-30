@@ -38,6 +38,7 @@ function Building(props) {
       buildingTypeIcon = "📦";
       break;
   }
+  // TODO: Add tooltips for emoji icons and button
   return(
     <Card body className="text-center">
       <CardText>
