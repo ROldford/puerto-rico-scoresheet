@@ -6,3 +6,32 @@
 hr.style1{
   border-top: 1px solid #8c8b8b;
 }
+
+div.bordered-round{
+  border: 1px solid #00000020;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+div.resource-corn{
+  background-color: #fbec5d20;
+}
+
+div.resource-indigo{
+  background-color: #4b008220;
+  /*color: #ffffff;*/
+}
+
+div.resource-sugar{
+  background-color: #f9f9f9;
+}
+
+div.resource-tobacco{
+  background-color: ##91755920;
+  /*color: #ffffff;*/
+}
+
+div.resource-coffee{
+  background-color: ###130d0a20;
+  /*color: #ffffff;*/
+}
