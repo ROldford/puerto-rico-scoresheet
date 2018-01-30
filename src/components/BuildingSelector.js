@@ -32,17 +32,17 @@ const BuildingSelector = () => (
         </Card>
         <Building 
           buildingName="Test 1" 
-          buildingType="🏛" 
+          buildingType="violet" 
           isBuilt={false}
         />
         <Building 
           buildingName="Test 2" 
-          buildingType="🏭" 
+          buildingType="production-large" 
           isBuilt={true}
         />
         <Building 
           buildingName="Test 3" 
-          buildingType="📦" 
+          buildingType="production-small" 
           isBuilt={false}
         />
       </Col>
@@ -54,17 +54,17 @@ const BuildingSelector = () => (
         </Card>
         <Building 
           buildingName="Test 1" 
-          buildingType="🏛" 
+          buildingType="violet" 
           isBuilt={false}
         />
         <Building 
           buildingName="Test 2" 
-          buildingType="🏭" 
+          buildingType="production-large" 
           isBuilt={true}
         />
         <Building 
           buildingName="Test 3" 
-          buildingType="📦" 
+          buildingType="production-small" 
           isBuilt={false}
         />
       </Col>
@@ -76,17 +76,17 @@ const BuildingSelector = () => (
         </Card>
         <Building 
           buildingName="Test 1" 
-          buildingType="🏛" 
+          buildingType="violet" 
           isBuilt={false}
         />
         <Building 
           buildingName="Test 2" 
-          buildingType="🏭" 
+          buildingType="production-large" 
           isBuilt={true}
         />
         <Building 
           buildingName="Test 3" 
-          buildingType="📦" 
+          buildingType="production-small" 
           isBuilt={false}
         />
       </Col>
@@ -98,17 +98,17 @@ const BuildingSelector = () => (
         </Card>
         <Building 
           buildingName="Test 1" 
-          buildingType="🏛" 
+          buildingType="violet" 
           isBuilt={false}
         />
         <Building 
           buildingName="Test 2" 
-          buildingType="🏭" 
+          buildingType="production-large" 
           isBuilt={true}
         />
         <Building 
           buildingName="Test 3" 
-          buildingType="📦" 
+          buildingType="production-small" 
           isBuilt={false}
         />
       </Col>      

@@ -26,6 +26,18 @@ import {
 function Building(props) {
   const buildingName = props.buildingName;
   const buildingType = props.buildingType;
+  let buildingTypeIcon;
+  switch (buildingType) {
+    case 'violet':
+      buildingTypeIcon = "🏛";
+      break;
+    case 'production-large':
+      buildingTypeIcon = "🏭";
+      break;
+    case 'production-small':
+      buildingTypeIcon = "📦";
+      break;
+  }
   return(
     <Card body className="text-center">
       <CardText>
@@ -33,7 +45,7 @@ function Building(props) {
           <Row noGutters={true}>
             <Col xs="12" lg="auto"><small><Badge href="#" color="light">🏗 ?</Badge></small></Col>
             <Col className="align-self-end"><h4>{buildingName}</h4></Col>
-            <Col xs="12" lg="auto"><small>{buildingType}</small></Col>
+            <Col xs="12" lg="auto"><small>{buildingTypeIcon}</small></Col>
           </Row>
         </Container>
       </CardText>
