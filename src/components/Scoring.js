@@ -20,15 +20,15 @@ const Scoring = (props) => (
       </Col>
     </Row>
     <Row>
-      <Col>
+      <Col className="small-padding">
         <ScorePanel 
-          titleText="VP Chips" 
+          titleText="Chips" 
           scoreValue={props.vpScore.vpChips} 
           isScoreLarge={false} 
           canChangeScore={true}
         />
       </Col>
-      <Col>
+      <Col className="small-padding">
         <ScorePanel 
           titleText="Buildings" 
           scoreValue={props.vpScore.vpBuildings} 
@@ -36,7 +36,7 @@ const Scoring = (props) => (
           canChangeScore={false}
         />
       </Col>
-      <Col>
+      <Col className="small-padding">
         <ScorePanel 
           titleText="Bonuses" 
           scoreValue={props.vpScore.vpBonuses} 
