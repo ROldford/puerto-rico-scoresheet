@@ -4,15 +4,16 @@ import {
   Container, 
   Row
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 import ScorePanel from "./ScorePanel"
 
-const Scoring = () => (
+const Scoring = (props) => (
   <Container>
     <Row>
       <Col>
         <ScorePanel 
           titleText="Total Points" 
-          scoreValue="49" 
+          scoreValue={props.totalVpScore} 
           isScoreLarge={true} 
           canChangeScore={false}
         />
@@ -22,7 +23,7 @@ const Scoring = () => (
       <Col>
         <ScorePanel 
           titleText="VP Chips" 
-          scoreValue="49" 
+          scoreValue={props.vpScore.vpChips} 
           isScoreLarge={false} 
           canChangeScore={true}
         />
@@ -30,7 +31,7 @@ const Scoring = () => (
       <Col>
         <ScorePanel 
           titleText="Buildings" 
-          scoreValue="49" 
+          scoreValue={props.vpScore.vpBuildings} 
           isScoreLarge={false} 
           canChangeScore={false}
         />
@@ -38,7 +39,7 @@ const Scoring = () => (
       <Col>
         <ScorePanel 
           titleText="Bonuses" 
-          scoreValue="49" 
+          scoreValue={props.vpScore.vpBonuses} 
           isScoreLarge={false} 
           canChangeScore={false}
         />
@@ -46,5 +47,14 @@ const Scoring = () => (
     </Row>
   </Container>
 );
+
+Scoring.propTypes = {
+  vpScore: PropTypes.shape({
+      vpChips: PropTypes.number, 
+      vpBuildings: PropTypes.number, 
+      vpBonuses: PropTypes.number
+    }).isRequired,
+  totalVpScore: PropTypes.number.isRequired
+}
 
 export default Scoring;

@@ -145,6 +145,14 @@ const BUILDINGS_LIST =
 // TODO: Move this data into a separate file (JSON?)
 
 class App extends Component {
+  state = {
+    vpScore: {vpChips: 21, vpBuildings: 19, vpBonuses: 12}
+  }
+  getTotalVpScore = () => {
+    return this.state.vpScore.vpChips + 
+      this.state.vpScore.vpBuildings + 
+      this.state.vpScore.vpBonuses;
+  };
   render() {
     return (
       <div className="scoresheet">
@@ -155,7 +163,12 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <Col><Scoring /></Col>
+            <Col>
+              <Scoring 
+                vpScore={this.state.vpScore} 
+                totalVpScore={this.getTotalVpScore()}
+              />
+            </Col>
           </Row>
           <Row>
             <Col><BuildingSelector buildingsData={BUILDINGS_LIST}/></Col>
