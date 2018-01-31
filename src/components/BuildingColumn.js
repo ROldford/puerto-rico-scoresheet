@@ -8,27 +8,23 @@ import PropTypes from "prop-types";
 import Building from "./Building";
 
 const BuildingColumn = (props) => {
-  const columnData = props.columnData;
-  const buildingLevel = columnData.buildingLevel;
-  const buildings = columnData.buildings;
-
   return(
     <Col>
       <Card className="text-center">
         <CardHeader>
-          {buildingLevel}
+          {props.columnData.buildingLevel}
         </CardHeader>
       </Card>
-      {buildings.map(
+      {props.columnData.buildings.map(
         (building) => {
           return(
             <Building 
               key={building.buildingName}
               buildingName={building.buildingName} 
-              buildingType={building.buildingType} 
               isBuilt={building.isBuilt}
-              isActive={building.isActive}
-              hasBonusPanel={buildingLevel >= 4 ? true : false}
+              hasBonusPanel={
+                props.columnData.buildingLevel >= 4 ? true : false
+              }
             />
           )
         }
@@ -38,7 +34,10 @@ const BuildingColumn = (props) => {
 };
 
 BuildingColumn.propTypes = {
-  columnData: PropTypes.object.isRequired
+  columnData: PropTypes.shape({
+      buildingLevel: PropTypes.number.isRequired,
+      buildings: PropTypes.array.isRequired, 
+    }).isRequired, 
 };
 
 export default BuildingColumn;

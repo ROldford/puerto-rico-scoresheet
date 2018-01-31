@@ -28,4 +28,11 @@ function ScorePanel(props) {
   );
 }
 
+ScorePanel.propTypes = {
+  canChangeScore: PropTypes.bool.isRequired;
+  isScoreLarge: PropTypes.bool.isRequired;
+  scoreValue: PropTypes.number.isRequired;
+  titleText: PropTypes.string.isRequired;
+}
+
 export default ScorePanel;

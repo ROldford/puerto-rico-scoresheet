@@ -24,14 +24,7 @@ const BuildingSelector = (props) => (
 );
 
 BuildingSelector.propTypes = {
-  buildingsData: PropTypes.arrayOf(
-      PropTypes.shape(
-        {
-          buildingLevel: PropTypes.number.isRequired, 
-          buildings: PropTypes.arrayOf(PropTypes.object), 
-        }
-      ).isRequired
-    ).isRequired
+  buildingsData: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
 }
 
 export default BuildingSelector;

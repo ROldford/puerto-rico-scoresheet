@@ -25,6 +25,7 @@ function BuildingBonusPanel(props) {
       inputFormCode = "";
       break;
   }
+  
   return(
     <div>
       <hr className="small-margin"/>
@@ -41,7 +42,7 @@ function BuildingBonusPanel(props) {
 };
 
 BuildingBonusPanel.propTypes = {
-
+  buildingName: PropTypes.string.isRequired
 }
 
 export default BuildingBonusPanel;

@@ -9,11 +9,10 @@ import PropTypes from "prop-types";
 import BuildingBonusPanel from "./BuildingBonusPanel";
 
 function Building(props) {
-  const buildingName = props.buildingName;
   const builtStatusStyle = (props.isBuilt ? "bg-success" : "bg-light");
   let bonusPanelCode;
   if (props.hasBonusPanel) {
-    bonusPanelCode=(<BuildingBonusPanel buildingName={buildingName}/>);
+    bonusPanelCode=(<BuildingBonusPanel buildingName={props.buildingName}/>);
   } else {
     bonusPanelCode="";
   }
@@ -21,7 +20,7 @@ function Building(props) {
   // TODO: Add tooltips for emoji icons and button
   return(
     <div className={`${builtStatusStyle} text-center bordered-round`}>
-      {buildingName}
+      {props.buildingName}
       {bonusPanelCode}
     </div>
   )
@@ -29,8 +28,8 @@ function Building(props) {
 
 Building.propTypes = {
   buildingName: PropTypes.string.isRequired, 
-  buildingType: PropTypes.string.isRequired, 
   isBuilt: PropTypes.bool.isRequired, 
+  hasBonusPanel: PropTypes.bool.isRequired, 
 }
 
 export default Building;
