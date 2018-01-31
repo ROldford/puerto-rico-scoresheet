@@ -13,31 +13,43 @@ const BUILDINGS_LIST =
         buildingName: "Small Indigo Plant", 
         buildingType: "production-small", 
         buildingPoints: 1,
+        isBuilt: false, 
+        buildingStyle: "resource-indigo",
       },
       {
         buildingName: "Small Sugar Mill", 
         buildingType: "production-small", 
         buildingPoints: 1,
+        isBuilt: false, 
+        buildingStyle: "resource-sugar",
       },
       {
         buildingName: "Small Market", 
         buildingType: "violet", 
         buildingPoints: 1,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Hacienda", 
         buildingType: "violet", 
         buildingPoints: 1,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Construction Hut", 
         buildingType: "violet", 
         buildingPoints: 1,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Small Warehouse", 
         buildingType: "violet", 
         buildingPoints: 1,
+        isBuilt: false, 
+        buildingStyle: "violet",
       }, 
     ]
   },
@@ -48,31 +60,43 @@ const BUILDINGS_LIST =
         buildingName: "Indigo Plant", 
         buildingType: "production-large", 
         buildingPoints: 2,
+        isBuilt: false, 
+        buildingStyle: "resource-indigo",
       },
       {
         buildingName: "Sugar Mill", 
         buildingType: "production-large", 
         buildingPoints: 2,
+        isBuilt: false, 
+        buildingStyle: "resource-sugar",
       },
       {
         buildingName: "Hospice", 
         buildingType: "violet", 
         buildingPoints: 2,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Office", 
         buildingType: "violet", 
         buildingPoints: 2,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Large Market", 
         buildingType: "violet", 
         buildingPoints: 2,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Large Warehouse", 
         buildingType: "violet", 
         buildingPoints: 2,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
     ]
   },
@@ -83,31 +107,43 @@ const BUILDINGS_LIST =
         buildingName: "Tobacco Storage", 
         buildingType: "production-large", 
         buildingPoints: 3,
+        isBuilt: false, 
+        buildingStyle: "resource-tobacco",
       },
       {
         buildingName: "Coffee Roaster", 
         buildingType: "production-large", 
         buildingPoints: 3,
+        isBuilt: false, 
+        buildingStyle: "resource-coffee",
       },
       {
         buildingName: "Factory", 
         buildingType: "violet", 
         buildingPoints: 3,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "University", 
         buildingType: "violet", 
         buildingPoints: 3,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Harbor", 
         buildingType: "violet", 
         buildingPoints: 3,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Wharf", 
         buildingType: "violet", 
         buildingPoints: 3,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
     ]
   },
@@ -118,26 +154,36 @@ const BUILDINGS_LIST =
         buildingName: "Guild Hall", 
         buildingType: "violet", 
         buildingPoints: 4,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Customs House", 
         buildingType: "violet", 
         buildingPoints: 4,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Residence", 
         buildingType: "violet", 
         buildingPoints: 4,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "City Hall", 
         buildingType: "violet", 
         buildingPoints: 4,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
       {
         buildingName: "Fortress", 
         buildingType: "violet", 
         buildingPoints: 4,
+        isBuilt: false, 
+        buildingStyle: "violet",
       },
     ]
   },
@@ -146,13 +192,23 @@ const BUILDINGS_LIST =
 
 class App extends Component {
   state = {
-    vpScore: {vpChips: 21, vpBuildings: 19, vpBonuses: 12}
+    vpChips: 21, 
+    buildings: BUILDINGS_LIST, 
   }
+
   getTotalVpScore = () => {
-    return this.state.vpScore.vpChips + 
-      this.state.vpScore.vpBuildings + 
-      this.state.vpScore.vpBonuses;
+    return this.state.vpChips + 
+      this.getVpBuildings() + 
+      this.getVpBonuses();
   };
+  getVpBuildings = () => {return 19};
+  getVpBonuses = () => {return 12};
+  getVpScoreObject = () => {return {
+    vpChips: this.state.vpChips, 
+    vpBuildings: this.getVpBuildings(), 
+    vpBonuses: this.getVpBonuses()
+  };}
+
   render() {
     return (
       <div className="scoresheet">
@@ -165,7 +221,7 @@ class App extends Component {
           <Row>
             <Col>
               <Scoring 
-                vpScore={this.state.vpScore} 
+                vpScore={this.getVpScoreObject()} 
                 totalVpScore={this.getTotalVpScore()}
               />
             </Col>
