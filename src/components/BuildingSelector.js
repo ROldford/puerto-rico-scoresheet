@@ -3,6 +3,7 @@ import {
   Container, 
   Row
 } from 'reactstrap';
+import PropTypes from "prop-types";
 import BuildingColumn from "./BuildingColumn";
 
 const BuildingSelector = (props) => (
@@ -21,5 +22,16 @@ const BuildingSelector = (props) => (
     </Row>
   </Container>
 );
+
+BuildingSelector.propTypes = {
+  buildingsData: PropTypes.arrayOf(
+      PropTypes.shape(
+        {
+          buildingLevel: PropTypes.number.isRequired, 
+          buildings: PropTypes.arrayOf(PropTypes.object), 
+        }
+      ).isRequired
+    ).isRequired
+}
 
 export default BuildingSelector;

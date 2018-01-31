@@ -4,9 +4,10 @@ import {
   CardHeader, 
   Col
 } from 'reactstrap';
+import PropTypes from "prop-types";
 import Building from "./Building";
 
-function BuildingColumn(props) {
+const BuildingColumn = (props) => {
   const columnData = props.columnData;
   const buildingLevel = columnData.buildingLevel;
   const buildings = columnData.buildings;
@@ -25,12 +26,18 @@ function BuildingColumn(props) {
               key={building.buildingName}
               buildingName={building.buildingName} 
               buildingType={building.buildingType} 
+              isBuilt={building.isBuilt}
+              buildingStyle={building.buildingStyle} 
             />
           )
         }
       )}
     </Col>
   )
+};
+
+BuildingColumn.propTypes = {
+  columnData: PropTypes.object.isRequired
 };
 
 export default BuildingColumn;
