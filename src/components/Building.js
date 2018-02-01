@@ -1,10 +1,4 @@
 import React from 'react';
-import {
-  Col, 
-  Container, 
-  Row, 
-  Badge, 
-} from 'reactstrap';
 import PropTypes from "prop-types";
 import BuildingBonusPanel from "./BuildingBonusPanel";
 

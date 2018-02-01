@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 function ScorePanelDisplayMutable(props) {
   return(
-    <Row NoGutters>
+    <Row>
       <Col className="small-padding text-right">
         <Badge onClick={props.handleScoreChange} href="#" id="increment">
           +
