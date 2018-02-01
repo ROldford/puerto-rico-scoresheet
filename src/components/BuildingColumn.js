@@ -22,6 +22,7 @@ const BuildingColumn = (props) => {
               key={building.buildingName}
               buildingName={building.buildingName} 
               isBuilt={building.isBuilt}
+              isActive={building.isActive}
               hasBonusPanel={
                 props.columnData.buildingLevel >= 4 ? true : false
               }

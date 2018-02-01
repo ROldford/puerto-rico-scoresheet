@@ -12,7 +12,12 @@ function Building(props) {
   const builtStatusStyle = (props.isBuilt ? "bg-success" : "bg-light");
   let bonusPanelCode;
   if (props.hasBonusPanel) {
-    bonusPanelCode=(<BuildingBonusPanel buildingName={props.buildingName}/>);
+    bonusPanelCode=(
+      <BuildingBonusPanel 
+        buildingName={props.buildingName} 
+        isActive={props.isActive}
+      />
+    );
   } else {
     bonusPanelCode="";
   }
@@ -29,6 +34,7 @@ function Building(props) {
 Building.propTypes = {
   buildingName: PropTypes.string.isRequired, 
   isBuilt: PropTypes.bool.isRequired, 
+  isActive: PropTypes.bool.isRequired, 
   hasBonusPanel: PropTypes.bool.isRequired, 
 }
 

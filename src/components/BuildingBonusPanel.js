@@ -25,14 +25,14 @@ function BuildingBonusPanel(props) {
       inputFormCode = "";
       break;
   }
-  
+
   return(
     <div>
       <hr className="small-margin"/>
       <Form inline className="justify-content-center">
         <FormGroup check>
           <Label check>
-            <Input type="checkbox" /> 👷🏾 ?
+            <Input type="checkbox" checked={props.isActive}/> 👷🏾 ?
           </Label>
         </FormGroup>
         {inputFormCode}
@@ -42,7 +42,8 @@ function BuildingBonusPanel(props) {
 };
 
 BuildingBonusPanel.propTypes = {
-  buildingName: PropTypes.string.isRequired
+  buildingName: PropTypes.string.isRequired, 
+  isActive: PropTypes.bool.isRequired, 
 }
 
 export default BuildingBonusPanel;
