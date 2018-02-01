@@ -26,6 +26,10 @@ const BuildingColumn = (props) => {
               hasBonusPanel={
                 props.columnData.buildingLevel >= 4 ? true : false
               }
+              handleBuilt={(e) => {
+                props.toggleBuiltOf(building.buildingName);
+                console.log(e.target.id);
+              }}
             />
           )
         }
@@ -39,6 +43,7 @@ BuildingColumn.propTypes = {
       buildingLevel: PropTypes.number.isRequired,
       buildings: PropTypes.array.isRequired, 
     }).isRequired, 
+  toggleBuiltOf: PropTypes.func.isRequired, 
 };
 
 export default BuildingColumn;

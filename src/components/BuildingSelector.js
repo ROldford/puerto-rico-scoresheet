@@ -15,6 +15,10 @@ const BuildingSelector = (props) => (
             <BuildingColumn 
               key={column.buildingLevel}
               columnData={column} 
+              toggleBuiltOf={(name) => {
+                props.toggleBuiltOf(name);
+                console.log(name)
+              }}
             />
           )
         }

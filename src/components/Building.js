@@ -18,7 +18,11 @@ function Building(props) {
 
   // TODO: Add tooltips for emoji icons and button
   return(
-    <div className={`${builtStatusStyle} text-center bordered-round`}>
+    <div 
+      className={`${builtStatusStyle} text-center bordered-round`} 
+      onClick={props.handleBuilt} 
+      id={props.buildingName}
+    >
       {props.buildingName}
       {bonusPanelCode}
     </div>
@@ -30,6 +34,7 @@ Building.propTypes = {
   isBuilt: PropTypes.bool.isRequired, 
   isActive: PropTypes.bool.isRequired, 
   hasBonusPanel: PropTypes.bool.isRequired, 
+  handleBuilt: PropTypes.func.isRequired, 
 }
 
 export default Building;

@@ -4,7 +4,7 @@ import Header from './components/Header';
 import BuildingSelector from './components/BuildingSelector';
 import Scoring from './components/Scoring';
 
-const BUILDINGS_LIST = 
+let BUILDINGS_LIST = 
 [
   {
     buildingLevel: 1,
@@ -193,7 +193,7 @@ const BUILDINGS_LIST =
 class App extends Component {
   state = {
     vpChips: 21, 
-    buildings: BUILDINGS_LIST, 
+    buildingColumns: BUILDINGS_LIST, 
   }
 
   // Handler functions
@@ -211,13 +211,55 @@ class App extends Component {
     });
   }
 
+  toggleBoolPropertyOf = (property, buildingToChange) => {
+    this.setState({
+      buildingColumns: this.state.buildingColumns.map((column) => {
+        return({
+          ...column,
+          buildings: column.buildings.map((building) => {
+            if (building.buildingName === buildingToChange) {
+              return({
+                ...building, 
+                [property]: !building[property]
+              }); // end return
+            } // end if
+            return building;
+          }) // end .map
+        }); // end return
+      }) // end .map
+    }); // end setState
+  }
+
+  toggleBuiltOf = (buildingToChange) => {
+    console.log("Runs toggleBuiltOf");
+    this.toggleBoolPropertyOf("isBuilt", buildingToChange);
+  }
+
   // State calculation functions
   getTotalVpScore = () => {
     return this.state.vpChips + 
       this.getVpBuildings() + 
       this.getVpBonuses();
   };
-  getVpBuildings = () => {return 19};
+
+  getVpBuildings = () => {
+    let returnValue = 0;
+    const flattenedBuildingArray = this.state.buildingColumns.reduce(
+      (acc, cur) => acc.concat(cur.buildings), 
+      []
+    );
+    returnValue = flattenedBuildingArray.reduce(
+      (acc, cur) => {
+        if (cur.isBuilt) {
+          return acc + cur.buildingPoints;
+        } else {
+          return acc;
+        }
+      }, 0
+    );
+    return returnValue;
+  };
+
   getVpBonuses = () => {return 12};
   getVpScoreObject = () => {return {
     vpChips: this.state.vpChips, 
@@ -244,7 +286,12 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <Col><BuildingSelector buildingsData={BUILDINGS_LIST}/></Col>
+            <Col>
+              <BuildingSelector 
+                buildingsData={this.state.buildingColumns} 
+                toggleBuiltOf={this.toggleBuiltOf}
+              />
+            </Col>
           </Row>
         </Container>
       </div>
