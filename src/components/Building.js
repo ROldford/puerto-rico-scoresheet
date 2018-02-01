@@ -9,7 +9,8 @@ function Building(props) {
     bonusPanelCode=(
       <BuildingBonusPanel 
         buildingName={props.buildingName} 
-        isActive={props.isActive}
+        isActive={props.isActive} 
+        handleActive={() => props.handleActive()} 
       />
     );
   } else {

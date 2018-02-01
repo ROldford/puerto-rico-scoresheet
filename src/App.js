@@ -231,8 +231,10 @@ class App extends Component {
   }
 
   toggleBuiltOf = (buildingToChange) => {
-    console.log("Runs toggleBuiltOf");
     this.toggleBoolPropertyOf("isBuilt", buildingToChange);
+  }
+  toggleActiveOf = (buildingToChange) => {
+    this.toggleBoolPropertyOf("isActive", buildingToChange);
   }
 
   // State calculation functions
@@ -290,6 +292,7 @@ class App extends Component {
               <BuildingSelector 
                 buildingsData={this.state.buildingColumns} 
                 toggleBuiltOf={this.toggleBuiltOf}
+                toggleActiveOf={this.toggleActiveOf}
               />
             </Col>
           </Row>

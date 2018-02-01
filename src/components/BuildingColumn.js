@@ -28,7 +28,9 @@ const BuildingColumn = (props) => {
               }
               handleBuilt={(e) => {
                 props.toggleBuiltOf(building.buildingName);
-                console.log(e.target.id);
+              }}
+              handleActive={() => {
+                props.toggleActiveOf(building.buildingName);
               }}
             />
           )
@@ -37,6 +39,7 @@ const BuildingColumn = (props) => {
     </Col>
   )
 };
+// TODO: Remove e from handleBuilt in return
 
 BuildingColumn.propTypes = {
   columnData: PropTypes.shape({

@@ -17,7 +17,9 @@ const BuildingSelector = (props) => (
               columnData={column} 
               toggleBuiltOf={(name) => {
                 props.toggleBuiltOf(name);
-                console.log(name)
+              }}
+              toggleActiveOf={(name) => {
+                props.toggleActiveOf(name);
               }}
             />
           )

@@ -32,7 +32,11 @@ function BuildingBonusPanel(props) {
       <Form inline className="justify-content-center">
         <FormGroup check>
           <Label check>
-            <Input type="checkbox" checked={props.isActive}/> 👷🏾 ?
+            <Input 
+              type="checkbox" 
+              checked={props.isActive} 
+              onChange={props.handleActive}
+            /> 👷🏾 ?
           </Label>
         </FormGroup>
         {inputFormCode}
@@ -44,6 +48,7 @@ function BuildingBonusPanel(props) {
 BuildingBonusPanel.propTypes = {
   buildingName: PropTypes.string.isRequired, 
   isActive: PropTypes.bool.isRequired, 
+  handleActive: PropTypes.func.isRequired, 
 }
 
 export default BuildingBonusPanel;
