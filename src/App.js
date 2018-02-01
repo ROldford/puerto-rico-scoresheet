@@ -154,15 +154,15 @@ const BUILDINGS_LIST =
         buildingName: "Guild Hall", 
         buildingType: "violet", 
         buildingPoints: 4,
-        isBuilt: false, 
+        isBuilt: true, 
         isActive: false,
       },
       {
         buildingName: "Customs House", 
         buildingType: "violet", 
         buildingPoints: 4,
-        isBuilt: false, 
-        isActive: false,
+        isBuilt: true, 
+        isActive: true,
       },
       {
         buildingName: "Residence", 
@@ -196,6 +196,22 @@ class App extends Component {
     buildings: BUILDINGS_LIST, 
   }
 
+  // Handler functions
+  changeScore = (changeType) => {
+    let changeValue;
+    if (changeType === "increment") {
+      changeValue = 1;
+    } else if (changeType === "decrement") {
+      changeValue = -1;
+    } else {
+      changeValue = 0;
+    }
+    this.setState({
+      vpChips: (this.state.vpChips + changeValue)
+    });
+  }
+
+  // State calculation functions
   getTotalVpScore = () => {
     return this.state.vpChips + 
       this.getVpBuildings() + 
@@ -223,6 +239,7 @@ class App extends Component {
               <Scoring 
                 vpScore={this.getVpScoreObject()} 
                 totalVpScore={this.getTotalVpScore()}
+                changeScore={this.changeScore}
               />
             </Col>
           </Row>

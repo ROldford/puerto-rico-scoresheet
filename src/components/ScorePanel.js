@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ScorePanelDisplayImmutable from "./ScorePanelDisplayImmutable";
 import ScorePanelDisplayMutable from "./ScorePanelDisplayMutable";
 
@@ -10,6 +11,7 @@ function ScorePanel(props) {
       <ScorePanelDisplayMutable 
         isScoreLarge={props.isScoreLarge} 
         scoreValue={props.scoreValue} 
+        handleScoreChange={e => props.changeScore(e.target.id)} 
       />
     );
   } else {
@@ -29,10 +31,9 @@ function ScorePanel(props) {
 }
 
 ScorePanel.propTypes = {
-  canChangeScore: PropTypes.bool.isRequired;
-  isScoreLarge: PropTypes.bool.isRequired;
-  scoreValue: PropTypes.number.isRequired;
-  titleText: PropTypes.string.isRequired;
+  changeScore: PropTypes.func, 
+  canChangeScore: PropTypes.bool.isRequired, 
+  titleText: PropTypes.string.isRequired, 
 }
 
 export default ScorePanel;

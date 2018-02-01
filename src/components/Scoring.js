@@ -26,6 +26,7 @@ const Scoring = (props) => (
           scoreValue={props.vpScore.vpChips} 
           isScoreLarge={false} 
           canChangeScore={true}
+          changeScore={changeType => props.changeScore(changeType)}
         />
       </Col>
       <Col className="small-padding">
