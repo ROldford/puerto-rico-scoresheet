@@ -13,7 +13,7 @@ let BUILDINGS_LIST =
         buildingName: "Small Indigo Plant", 
         buildingType: "production-small", 
         buildingPoints: 1,
-        isBuilt: true, 
+        isBuilt: false, 
         isActive: true,
       },
       {
@@ -154,15 +154,15 @@ let BUILDINGS_LIST =
         buildingName: "Guild Hall", 
         buildingType: "violet", 
         buildingPoints: 4,
-        isBuilt: true, 
+        isBuilt: false, 
         isActive: false,
       },
       {
         buildingName: "Customs House", 
         buildingType: "violet", 
         buildingPoints: 4,
-        isBuilt: true, 
-        isActive: true,
+        isBuilt: false, 
+        isActive: false,
       },
       {
         buildingName: "Residence", 
@@ -192,7 +192,7 @@ let BUILDINGS_LIST =
 
 class App extends Component {
   state = {
-    vpChips: 21, 
+    vpChips: 0, 
     buildingColumns: BUILDINGS_LIST, 
   }
 
