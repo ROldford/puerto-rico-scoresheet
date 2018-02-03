@@ -239,7 +239,7 @@ class App extends Component {
     });
   }
 
-  toggleBoolPropertyOf = (property, buildingToChange) => {
+  changePropertyOf = (buildingToChange, otherArgs, callback) => {
     this.setState({
       buildingColumns: this.state.buildingColumns.map((column) => {
         return({
@@ -252,10 +252,7 @@ class App extends Component {
               // then will return it back
               // This lets the "building scanner" code run generically
               // args is an object holding all other arguments
-              return({
-                ...building, 
-                [property]: !building[property]
-              }); // end return
+              return (callback(building, otherArgs));
             } // end if
             return building;
           }) // end .map
@@ -264,23 +261,43 @@ class App extends Component {
     }); // end setState
   }
 
+  callbackForToggleBoolPropertyOf = (building, otherArgs) => {
+    if ("property" in otherArgs) {
+      return({
+          ...building, 
+          [otherArgs.property]: !building[otherArgs.property]
+        });
+    } else {
+      console.log('otherArgs did not contain key "property"');
+    }
+  }
+
+  callbackForSetBonusContributorOf = (building, otherArgs) => {
+    if ("contrib" in otherArgs) {
+      return({
+          ...building, 
+          bonusContributor: otherArgs.contrib
+        });
+    } else {
+      console.log('otherArgs did not contain key "contrib"');
+    }
+  }
+
+  toggleBoolPropertyOf = (property, buildingToChange) => {
+    const otherArgs = {property: property};
+    this.changePropertyOf(
+      buildingToChange, 
+      otherArgs, 
+      this.callbackForToggleBoolPropertyOf
+    );
+  }
+
   setBonusContributorOf = (contrib, buildingToChange) => {
-    this.setState({
-      buildingColumns: this.state.buildingColumns.map((column) => {
-        return({
-          ...column,
-          buildings: column.buildings.map((building) => {
-            if (building.buildingName === buildingToChange) {
-              return({
-                ...building, 
-                bonusContributor: contrib
-              }); // end return
-            } // end if
-            return building;
-          }) // end .map
-        }); // end return
-      }) // end .map
-    }); // end setState
+    const otherArgs = {contrib: contrib};
+    this.changePropertyOf(
+      buildingToChange, 
+      otherArgs, 
+      this.callbackForSetBonusContributorOf);
   }
 
   toggleBuiltOf = (buildingToChange) => {
