@@ -223,12 +223,24 @@ class App extends Component {
   // General helper functions
   // TODO: Move helper functions here
   countBuiltBuildings = (buildingType) => {
-    // const flattenedBuildingArray = this.state.buildingColumns.reduce(
-    //   (acc, cur) => acc.concat(cur.buildings), 
-    //   []
-    // );
-    return 1;
-    // TODO: Finish this
+    let returnValue = 0;
+    // TODO: Extract this into a generic helper function
+    const flattenedBuildingArray = this.state.buildingColumns.reduce(
+      (acc, cur) => acc.concat(cur.buildings), 
+      []
+    );
+    returnValue = flattenedBuildingArray.reduce(
+      (acc, cur) => {
+        if (cur.buildingType === buildingType && cur.isBuilt) {
+          return acc + 1;
+        } else {
+          return acc;
+        }
+      }, 0
+    );
+    return returnValue;
+    // return 1;
+    // TODO: Figure out how to count all buildings of one type
   }
 
   isNumber = (valueToCheck) => {
@@ -359,6 +371,7 @@ class App extends Component {
 
   getVpBuildings = () => {
     let returnValue = 0;
+    // TODO: Extract this into a generic helper function
     const flattenedBuildingArray = this.state.buildingColumns.reduce(
       (acc, cur) => acc.concat(cur.buildings), 
       []
