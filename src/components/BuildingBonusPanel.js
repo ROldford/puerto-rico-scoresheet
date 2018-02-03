@@ -7,6 +7,7 @@ function BuildingBonusPanel(props) {
   let inputFormCode;
   switch (props.buildingName){
     case 'Residence':
+      console.log(props.bonusContributor);
       inputFormCode = (
         <BuildingBonusInput 
           inputId="islandSpaces" 
@@ -20,16 +21,17 @@ function BuildingBonusPanel(props) {
       );
       break;
     case 'Fortress':
+      console.log(props.bonusContributor);
       inputFormCode = (
         <BuildingBonusInput 
           inputId="totalWorkers" 
           labelText="Total number of workers" 
           inputPlaceholder="Total workers" 
-          value = {
+          inputValue = {
             (props.bonusContributor <= 0) ? "" : props.bonusContributor
           }
           handleBonusInput={
-            e => props.setBonusContributor(parseInt(e.target.value))
+            e => props.setBonusContributor(parseInt(e.target.value, 10))
           }
         />
       );

@@ -291,7 +291,6 @@ class App extends Component {
 
   // State calculation helper functions
   getVpBonusFor = (building) => {
-    console.log(building.otherArgs);
     let buildingBonusPoints = 0;
     if (building.isActive && building.isBuilt) {
       switch (building.buildingName) {
@@ -299,7 +298,6 @@ class App extends Component {
           buildingBonusPoints = 1;
           break;
         case "Customs House":
-          console.log(building.otherArgs.vpChips);
           buildingBonusPoints = Math.floor(building.otherArgs.vpChips / 4);
           // buildingBonusPoints = 2;
           break;
