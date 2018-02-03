@@ -21,17 +21,23 @@ const BuildingColumn = (props) => {
             <Building 
               key={building.buildingName}
               buildingName={building.buildingName} 
+              bonusContributor={building.bonusContributor} 
               isBuilt={building.isBuilt}
               isActive={building.isActive}
               hasBonusPanel={
                 props.columnData.buildingLevel >= 4 ? true : false
               }
-              handleBuilt={(e) => {
+              handleBuilt={() => {
                 props.toggleBuiltOf(building.buildingName);
               }}
               handleActive={() => {
                 props.toggleActiveOf(building.buildingName);
               }}
+              setBonusContributorOf={
+                (contrib, buildingToChange) => props.setBonusContributorOf(
+                  contrib, buildingToChange
+                )
+              }
             />
           )
         }
@@ -39,7 +45,6 @@ const BuildingColumn = (props) => {
     </Col>
   )
 };
-// TODO: Remove e from handleBuilt in return
 
 BuildingColumn.propTypes = {
   columnData: PropTypes.shape({
@@ -47,6 +52,8 @@ BuildingColumn.propTypes = {
       buildings: PropTypes.array.isRequired, 
     }).isRequired, 
   toggleBuiltOf: PropTypes.func.isRequired, 
+  toggleActiveOf: PropTypes.func.isRequired, 
+  setBonusContributorOf: PropTypes.func, 
 };
 
 export default BuildingColumn;

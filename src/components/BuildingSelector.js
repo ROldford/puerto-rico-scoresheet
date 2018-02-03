@@ -21,6 +21,11 @@ const BuildingSelector = (props) => (
               toggleActiveOf={(name) => {
                 props.toggleActiveOf(name);
               }}
+              setBonusContributorOf={
+                (contrib, buildingToChange) => props.setBonusContributorOf(
+                  contrib, buildingToChange
+                )
+              }
             />
           )
         }
@@ -30,7 +35,10 @@ const BuildingSelector = (props) => (
 );
 
 BuildingSelector.propTypes = {
-  buildingsData: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+  buildingsData: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired, 
+  toggleBuiltOf: PropTypes.func.isRequired, 
+  toggleActiveOf: PropTypes.func.isRequired, 
+  setBonusContributorOf: PropTypes.func, 
 }
 
 export default BuildingSelector;

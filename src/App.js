@@ -15,6 +15,7 @@ let BUILDINGS_LIST =
         buildingPoints: 1,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Small Sugar Mill", 
@@ -22,6 +23,7 @@ let BUILDINGS_LIST =
         buildingPoints: 1,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Small Market", 
@@ -29,6 +31,7 @@ let BUILDINGS_LIST =
         buildingPoints: 1,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Hacienda", 
@@ -36,6 +39,7 @@ let BUILDINGS_LIST =
         buildingPoints: 1,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Construction Hut", 
@@ -43,6 +47,7 @@ let BUILDINGS_LIST =
         buildingPoints: 1,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Small Warehouse", 
@@ -50,6 +55,7 @@ let BUILDINGS_LIST =
         buildingPoints: 1,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       }, 
     ]
   },
@@ -62,6 +68,7 @@ let BUILDINGS_LIST =
         buildingPoints: 2,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Sugar Mill", 
@@ -69,6 +76,7 @@ let BUILDINGS_LIST =
         buildingPoints: 2,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Hospice", 
@@ -76,6 +84,7 @@ let BUILDINGS_LIST =
         buildingPoints: 2,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Office", 
@@ -83,6 +92,7 @@ let BUILDINGS_LIST =
         buildingPoints: 2,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Large Market", 
@@ -90,6 +100,7 @@ let BUILDINGS_LIST =
         buildingPoints: 2,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Large Warehouse", 
@@ -97,6 +108,7 @@ let BUILDINGS_LIST =
         buildingPoints: 2,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
     ]
   },
@@ -109,6 +121,7 @@ let BUILDINGS_LIST =
         buildingPoints: 3,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Coffee Roaster", 
@@ -116,6 +129,7 @@ let BUILDINGS_LIST =
         buildingPoints: 3,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Factory", 
@@ -123,6 +137,7 @@ let BUILDINGS_LIST =
         buildingPoints: 3,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "University", 
@@ -130,6 +145,7 @@ let BUILDINGS_LIST =
         buildingPoints: 3,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Harbor", 
@@ -137,6 +153,7 @@ let BUILDINGS_LIST =
         buildingPoints: 3,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
       {
         buildingName: "Wharf", 
@@ -144,6 +161,7 @@ let BUILDINGS_LIST =
         buildingPoints: 3,
         isBuilt: false, 
         isActive: true,
+        bonusContributor: 0, 
       },
     ]
   },
@@ -155,14 +173,18 @@ let BUILDINGS_LIST =
         buildingType: "violet", 
         buildingPoints: 4,
         isBuilt: false, 
-        isActive: false,
+        isActive: false, 
+        bonusContributor: 0, 
+        bonusCalculator: null,
       },
       {
         buildingName: "Customs House", 
         buildingType: "violet", 
         buildingPoints: 4,
         isBuilt: false, 
-        isActive: false,
+        isActive: false, 
+        bonusContributor: 0, 
+        bonusCalculator: null,
       },
       {
         buildingName: "Residence", 
@@ -170,13 +192,17 @@ let BUILDINGS_LIST =
         buildingPoints: 4,
         isBuilt: false, 
         isActive: false,
+        bonusContributor: 0, 
+        bonusCalculator: null,
       },
       {
         buildingName: "City Hall", 
         buildingType: "violet", 
         buildingPoints: 4,
         isBuilt: false, 
-        isActive: false,
+        isActive: false, 
+        bonusContributor: 0, 
+        bonusCalculator: null,
       },
       {
         buildingName: "Fortress", 
@@ -184,6 +210,8 @@ let BUILDINGS_LIST =
         buildingPoints: 4,
         isBuilt: false, 
         isActive: false,
+        bonusContributor: 2, 
+        bonusCalculator: null, 
       },
     ]
   },
@@ -218,9 +246,34 @@ class App extends Component {
           ...column,
           buildings: column.buildings.map((building) => {
             if (building.buildingName === buildingToChange) {
+              // changeProperty(building, args)
+              // changeProperty is passed in as a callback
+              // changeProperty will edit the building state object
+              // then will return it back
+              // This lets the "building scanner" code run generically
+              // args is an object holding all other arguments
               return({
                 ...building, 
                 [property]: !building[property]
+              }); // end return
+            } // end if
+            return building;
+          }) // end .map
+        }); // end return
+      }) // end .map
+    }); // end setState
+  }
+
+  setBonusContributorOf = (contrib, buildingToChange) => {
+    this.setState({
+      buildingColumns: this.state.buildingColumns.map((column) => {
+        return({
+          ...column,
+          buildings: column.buildings.map((building) => {
+            if (building.buildingName === buildingToChange) {
+              return({
+                ...building, 
+                bonusContributor: contrib
               }); // end return
             } // end if
             return building;
@@ -293,6 +346,7 @@ class App extends Component {
                 buildingsData={this.state.buildingColumns} 
                 toggleBuiltOf={this.toggleBuiltOf}
                 toggleActiveOf={this.toggleActiveOf}
+                setBonusContributorOf={this.setBonusContributorOf}
               />
             </Col>
           </Row>
