@@ -29,6 +29,7 @@ function ScorePanelDisplayMutable(props) {
     </Row>
   );
 }
+// TODO: Prevent increment/decrement link badges from trying to go to /?#
 
 ScorePanelDisplayMutable.propTypes = {
   handleScoreChange: PropTypes.func.isRequired, 
