@@ -5,34 +5,32 @@ import BuildingBonusInput from "./BuildingBonusInput";
 
 function BuildingBonusPanel(props) {
   let inputFormCode;
+  const inputValuePropCode = (
+    (props.bonusContributor <= 0) ? "" : props.bonusContributor
+  );
+  const handleBonusInputCode = (e) => {props.setBonusContributor(
+    parseInt(e.target.value, 10)
+  )};
   switch (props.buildingName){
     case 'Residence':
-      console.log(props.bonusContributor);
       inputFormCode = (
         <BuildingBonusInput 
           inputId="islandSpaces" 
           labelText="Total occupied island spaces" 
           inputPlaceholder="Island spaces" 
-          inputValue = {
-            (props.bonusContributor <= 0) ? "" : props.bonusContributor
-          }
-          handleBonusInput={e => props.setBonusContributor(e.target.value)}
+          inputValue = {inputValuePropCode} 
+          handleBonusInput={handleBonusInputCode} 
         />
       );
       break;
     case 'Fortress':
-      console.log(props.bonusContributor);
       inputFormCode = (
         <BuildingBonusInput 
           inputId="totalWorkers" 
           labelText="Total number of workers" 
           inputPlaceholder="Total workers" 
-          inputValue = {
-            (props.bonusContributor <= 0) ? "" : props.bonusContributor
-          }
-          handleBonusInput={
-            e => props.setBonusContributor(parseInt(e.target.value, 10))
-          }
+          inputValue = {inputValuePropCode} 
+          handleBonusInput={handleBonusInputCode} 
         />
       );
       break;
