@@ -175,7 +175,6 @@ let BUILDINGS_LIST =
         isBuilt: false, 
         isActive: false, 
         bonusContributor: 0, 
-        bonusCalculator: null,
       },
       {
         buildingName: "Customs House", 
@@ -184,7 +183,6 @@ let BUILDINGS_LIST =
         isBuilt: false, 
         isActive: false, 
         bonusContributor: 0, 
-        bonusCalculator: null,
       },
       {
         buildingName: "Residence", 
@@ -193,7 +191,6 @@ let BUILDINGS_LIST =
         isBuilt: false, 
         isActive: false,
         bonusContributor: 0, 
-        bonusCalculator: null,
       },
       {
         buildingName: "City Hall", 
@@ -202,7 +199,6 @@ let BUILDINGS_LIST =
         isBuilt: false, 
         isActive: false, 
         bonusContributor: 0, 
-        bonusCalculator: null,
       },
       {
         buildingName: "Fortress", 
@@ -210,8 +206,7 @@ let BUILDINGS_LIST =
         buildingPoints: 4,
         isBuilt: false, 
         isActive: false,
-        bonusContributor: 2, 
-        bonusCalculator: null, 
+        bonusContributor: 2,  
       },
     ]
   },
@@ -224,20 +219,21 @@ class App extends Component {
     buildingColumns: BUILDINGS_LIST, 
   }
 
-  // Handler functions
-  changeScore = (changeType) => {
-    let changeValue;
-    if (changeType === "increment") {
-      changeValue = 1;
-    } else if (changeType === "decrement") {
-      changeValue = -1;
-    } else {
-      changeValue = 0;
-    }
-    this.setState({
-      vpChips: (this.state.vpChips + changeValue)
-    });
+
+  // General helper functions
+  // TODO: Move helper functions here
+  countBuiltBuildings = (buildingType) => {
+    // const flattenedBuildingArray = this.state.buildingColumns.reduce(
+    //   (acc, cur) => acc.concat(cur.buildings), 
+    //   []
+    // );
+    return 1;
+    // TODO: Finish this
   }
+
+
+  // Handler helper functions
+  // TODO: Change function name changeScore to changeVpChipCount everywhere
 
   changePropertyOf = (buildingToChange, otherArgs, callback) => {
     this.setState({
@@ -292,26 +288,55 @@ class App extends Component {
     );
   }
 
-  setBonusContributorOf = (contrib, buildingToChange) => {
-    const otherArgs = {contrib: contrib};
-    this.changePropertyOf(
-      buildingToChange, 
-      otherArgs, 
-      this.callbackForSetBonusContributorOf);
+
+  // State calculation helper functions
+  getVpBonusFor = (building) => {
+    console.log(building.otherArgs);
+    let buildingBonusPoints = 0;
+    if (building.isActive && building.isBuilt) {
+      switch (building.buildingName) {
+        case "Guild Hall":
+          buildingBonusPoints = 1;
+          break;
+        case "Customs House":
+          console.log(building.otherArgs.vpChips);
+          buildingBonusPoints = Math.floor(building.otherArgs.vpChips / 4);
+          // buildingBonusPoints = 2;
+          break;
+        case "Residence":
+          buildingBonusPoints = 3;
+          break;
+        case "City Hall":
+          buildingBonusPoints = 4;
+          break;
+        case "Fortress":
+          buildingBonusPoints = 5;
+          break;
+        default:
+          break;
+      }
+    }
+    return buildingBonusPoints;
   }
 
-  toggleBuiltOf = (buildingToChange) => {
-    this.toggleBoolPropertyOf("isBuilt", buildingToChange);
-  }
-  toggleActiveOf = (buildingToChange) => {
-    this.toggleBoolPropertyOf("isActive", buildingToChange);
-  }
-
-  // State calculation functions
-  getTotalVpScore = () => {
-    return this.state.vpChips + 
-      this.getVpBuildings() + 
-      this.getVpBonuses();
+  getVpBonuses = () => {
+    const vpBuildings = this.state.buildingColumns[3].buildings; 
+    const otherArgs = {
+      vpChips: this.state.vpChips, 
+      productionLgCount: this.countBuiltBuildings("production-large"), 
+      productionSmCount: this.countBuiltBuildings("production-small"), 
+      productionVioletCount: this.countBuiltBuildings("violet")
+    }
+    const adjustedBuildingArray = vpBuildings.map(
+      (building) => {
+        return ({
+          ...building, 
+          otherArgs
+        });
+      }
+    );
+    const buildingVpBonusArray = adjustedBuildingArray.map(this.getVpBonusFor);
+    return buildingVpBonusArray.reduce((acc, cur) => acc + cur);
   };
 
   getVpBuildings = () => {
@@ -332,7 +357,46 @@ class App extends Component {
     return returnValue;
   };
 
-  getVpBonuses = () => {return 12};
+
+  // Handler functions
+  changeScore = (changeType) => {
+    let changeValue;
+    if (changeType === "increment") {
+      changeValue = 1;
+    } else if (changeType === "decrement") {
+      changeValue = -1;
+    } else {
+      changeValue = 0;
+    }
+    this.setState({
+      vpChips: (this.state.vpChips + changeValue)
+    });
+  }
+
+  toggleBuiltOf = (buildingToChange) => {
+    this.toggleBoolPropertyOf("isBuilt", buildingToChange);
+  }
+
+  toggleActiveOf = (buildingToChange) => {
+    this.toggleBoolPropertyOf("isActive", buildingToChange);
+  }
+
+  setBonusContributorOf = (contrib, buildingToChange) => {
+    const otherArgs = {contrib: contrib};
+    this.changePropertyOf(
+      buildingToChange, 
+      otherArgs, 
+      this.callbackForSetBonusContributorOf);
+  }
+
+
+  // State calculation functions
+  getTotalVpScore = () => {
+    return this.state.vpChips + 
+      this.getVpBuildings() + 
+      this.getVpBonuses();
+  };
+
   getVpScoreObject = () => {return {
     vpChips: this.state.vpChips, 
     vpBuildings: this.getVpBuildings(), 
