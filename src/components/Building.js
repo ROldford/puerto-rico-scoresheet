@@ -21,7 +21,6 @@ function Building(props) {
     bonusPanelCode="";
   }
 
-  // TODO: Add tooltips for emoji icons and button
   return(
     <div 
       className={`${builtStatusStyle} text-center bordered-round`} 

@@ -20,7 +20,6 @@ function BuildingBonusInput(props) {
     </FormGroup>
   )
 };
-// TODO: Change this to use basic JSX elements instead of reactstrap
 
 BuildingBonusInput.propTypes = {
   inputId: PropTypes.string.isRequired, 

@@ -290,6 +290,7 @@ class App extends Component {
 
 
   // State calculation helper functions
+  // TODO: Develop this method to calculate for each building
   getVpBonusFor = (building) => {
     let buildingBonusPoints = 0;
     if (building.isActive && building.isBuilt) {
