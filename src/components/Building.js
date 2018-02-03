@@ -35,7 +35,10 @@ function Building(props) {
 
 Building.propTypes = {
   buildingName: PropTypes.string.isRequired, 
-  bonusContributor: PropTypes.number, 
+  bonusContributor: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number
+  ]).isRequired, 
   isBuilt: PropTypes.bool.isRequired, 
   isActive: PropTypes.bool.isRequired, 
   hasBonusPanel: PropTypes.bool.isRequired, 

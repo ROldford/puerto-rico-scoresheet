@@ -60,7 +60,10 @@ function BuildingBonusPanel(props) {
 
 BuildingBonusPanel.propTypes = {
   buildingName: PropTypes.string.isRequired, 
-  bonusContributor: PropTypes.number.isRequired, 
+  bonusContributor: PropTypes.oneOfType([
+    PropTypes.string, 
+    PropTypes.number
+  ]).isRequired, 
   isActive: PropTypes.bool.isRequired, 
   handleActive: PropTypes.func.isRequired, 
   setBonusContributor: PropTypes.func, 

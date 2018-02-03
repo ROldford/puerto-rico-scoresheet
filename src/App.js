@@ -206,7 +206,7 @@ let BUILDINGS_LIST =
         buildingPoints: 4,
         isBuilt: false, 
         isActive: false,
-        bonusContributor: 2,  
+        bonusContributor: 0,  
       },
     ]
   },
@@ -229,6 +229,12 @@ class App extends Component {
     // );
     return 1;
     // TODO: Finish this
+  }
+
+  isNumber = (valueToCheck) => {
+    // Unary + in parseFloat speeds up some edge case checks
+    // See https://stackoverflow.com/questions/6449611/how-to-check-whether-a-value-is-a-number-in-javascript-or-jquery
+    return !isNaN(parseFloat(+valueToCheck)) && isFinite(valueToCheck)
   }
 
 
@@ -270,10 +276,17 @@ class App extends Component {
 
   callbackForSetBonusContributorOf = (building, otherArgs) => {
     if ("contrib" in otherArgs) {
-      return({
-          ...building, 
-          bonusContributor: otherArgs.contrib
+      if (this.isNumber(otherArgs.contrib)) {
+        return({
+            ...building, 
+            bonusContributor: otherArgs.contrib
         });
+      } else {
+        return({
+            ...building, 
+            bonusContributor: ""
+        });
+      }
     } else {
       console.log('otherArgs did not contain key "contrib"');
     }
@@ -290,26 +303,32 @@ class App extends Component {
 
 
   // State calculation helper functions
-  // TODO: Develop this method to calculate for each building
   getVpBonusFor = (building) => {
     let buildingBonusPoints = 0;
     if (building.isActive && building.isBuilt) {
       switch (building.buildingName) {
         case "Guild Hall":
-          buildingBonusPoints = 1;
+          buildingBonusPoints = (
+            building.otherArgs.productionLgCount * 2 + 
+            building.otherArgs.productionSmCount
+          );
           break;
         case "Customs House":
           buildingBonusPoints = Math.floor(building.otherArgs.vpChips / 4);
           // buildingBonusPoints = 2;
           break;
         case "Residence":
-          buildingBonusPoints = 3;
+          buildingBonusPoints = (
+            building.bonusContributor <= 4 ? 
+            4 : 
+            (building.bonusContributor - 5)  
+          );
           break;
         case "City Hall":
-          buildingBonusPoints = 4;
+          buildingBonusPoints = building.otherArgs.productionVioletCount;
           break;
         case "Fortress":
-          buildingBonusPoints = 5;
+          buildingBonusPoints = Math.floor(building.bonusContributor / 3);
           break;
         default:
           break;
