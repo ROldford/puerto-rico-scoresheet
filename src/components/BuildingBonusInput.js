@@ -29,7 +29,6 @@ BuildingBonusInput.propTypes = {
     PropTypes.string, 
     PropTypes.number
   ]).isRequired, 
-  bonusContribValue: PropTypes.number, // TODO: Remove this
   handleBonusInput: PropTypes.func.isRequired,
 }
 

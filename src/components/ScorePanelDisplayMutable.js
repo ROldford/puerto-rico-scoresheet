@@ -10,7 +10,7 @@ function ScorePanelDisplayMutable(props) {
   return(
     <Row>
       <Col className="small-padding text-right">
-        <Badge onClick={props.handleScoreChange} href="#" id="increment">
+        <Badge onClick={props.handleVpChipChange} href="#" id="increment">
           +
         </Badge>
       </Col>
@@ -22,7 +22,7 @@ function ScorePanelDisplayMutable(props) {
         }
       </Col>
       <Col className="small-padding text-left">
-        <Badge onClick={props.handleScoreChange} href="#" id="decrement">
+        <Badge onClick={props.handleVpChipChange} href="#" id="decrement">
           -
         </Badge>
       </Col>
@@ -32,7 +32,7 @@ function ScorePanelDisplayMutable(props) {
 // TODO: Prevent increment/decrement link badges from trying to go to /?#
 
 ScorePanelDisplayMutable.propTypes = {
-  handleScoreChange: PropTypes.func.isRequired, 
+  handleVpChipChange: PropTypes.func.isRequired, 
   isScoreLarge: PropTypes.bool.isRequired, 
   scoreValue: PropTypes.number.isRequired, 
 }

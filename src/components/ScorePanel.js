@@ -11,7 +11,7 @@ function ScorePanel(props) {
       <ScorePanelDisplayMutable 
         isScoreLarge={props.isScoreLarge} 
         scoreValue={props.scoreValue} 
-        handleScoreChange={e => props.changeScore(e.target.id)} 
+        handleVpChipChange={e => props.changeVpChipCount(e.target.id)} 
       />
     );
   } else {
@@ -31,7 +31,7 @@ function ScorePanel(props) {
 }
 
 ScorePanel.propTypes = {
-  changeScore: PropTypes.func, 
+  changeVpChipCount: PropTypes.func, 
   canChangeScore: PropTypes.bool.isRequired, 
   titleText: PropTypes.string.isRequired, 
 }

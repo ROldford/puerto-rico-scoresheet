@@ -221,38 +221,21 @@ class App extends Component {
 
 
   // General helper functions
-  // TODO: Move helper functions here
-  countBuiltBuildings = (buildingType) => {
-    let returnValue = 0;
-    // TODO: Extract this into a generic helper function
-    const flattenedBuildingArray = this.state.buildingColumns.reduce(
-      (acc, cur) => acc.concat(cur.buildings), 
-      []
-    );
-    returnValue = flattenedBuildingArray.reduce(
-      (acc, cur) => {
-        if (cur.buildingType === buildingType && cur.isBuilt) {
-          return acc + 1;
-        } else {
-          return acc;
-        }
-      }, 0
-    );
-    return returnValue;
-    // return 1;
-    // TODO: Figure out how to count all buildings of one type
-  }
-
   isNumber = (valueToCheck) => {
     // Unary + in parseFloat speeds up some edge case checks
     // See https://stackoverflow.com/questions/6449611/how-to-check-whether-a-value-is-a-number-in-javascript-or-jquery
     return !isNaN(parseFloat(+valueToCheck)) && isFinite(valueToCheck)
   }
 
+  flattenBuildingColumnsInState = () => {
+    return this.state.buildingColumns.reduce(
+      (acc, cur) => acc.concat(cur.buildings), 
+      []
+    );
+  }
+
 
   // Handler helper functions
-  // TODO: Change function name changeScore to changeVpChipCount everywhere
-
   changePropertyOf = (buildingToChange, otherArgs, callback) => {
     this.setState({
       buildingColumns: this.state.buildingColumns.map((column) => {
@@ -315,6 +298,21 @@ class App extends Component {
 
 
   // State calculation helper functions
+  countBuiltBuildings = (buildingType) => {
+    let returnValue = 0;
+    const flattenedBuildingArray = this.flattenBuildingColumnsInState();
+    returnValue = flattenedBuildingArray.reduce(
+      (acc, cur) => {
+        if (cur.buildingType === buildingType && cur.isBuilt) {
+          return acc + 1;
+        } else {
+          return acc;
+        }
+      }, 0
+    );
+    return returnValue;
+  }
+
   getVpBonusFor = (building) => {
     let buildingBonusPoints = 0;
     if (building.isActive && building.isBuilt) {
@@ -371,11 +369,7 @@ class App extends Component {
 
   getVpBuildings = () => {
     let returnValue = 0;
-    // TODO: Extract this into a generic helper function
-    const flattenedBuildingArray = this.state.buildingColumns.reduce(
-      (acc, cur) => acc.concat(cur.buildings), 
-      []
-    );
+    const flattenedBuildingArray = this.flattenBuildingColumnsInState();
     returnValue = flattenedBuildingArray.reduce(
       (acc, cur) => {
         if (cur.isBuilt) {
@@ -390,7 +384,7 @@ class App extends Component {
 
 
   // Handler functions
-  changeScore = (changeType) => {
+  changeVpChipCount = (changeType) => {
     let changeValue;
     if (changeType === "increment") {
       changeValue = 1;
@@ -448,7 +442,7 @@ class App extends Component {
               <Scoring 
                 vpScore={this.getVpScoreObject()} 
                 totalVpScore={this.getTotalVpScore()}
-                changeScore={this.changeScore}
+                changeVpChipCount={this.changeVpChipCount}
               />
             </Col>
           </Row>
