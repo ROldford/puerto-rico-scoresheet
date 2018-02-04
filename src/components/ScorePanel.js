@@ -11,7 +11,10 @@ function ScorePanel(props) {
       <ScorePanelDisplayMutable 
         isScoreLarge={props.isScoreLarge} 
         scoreValue={props.scoreValue} 
-        handleVpChipChange={e => props.changeVpChipCount(e.target.id)} 
+        handleVpChipChange={e => {
+          e.preventDefault();
+          props.changeVpChipCount(e.target.id);
+        }} 
       />
     );
   } else {
