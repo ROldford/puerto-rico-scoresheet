@@ -389,7 +389,7 @@ class App extends Component {
     let changeValue;
     if (changeType === "increment") {
       changeValue = 1;
-    } else if (changeType === "decrement") {
+    } else if (changeType === "decrement" && this.state.vpChips > 0) {
       changeValue = -1;
     } else {
       changeValue = 0;
