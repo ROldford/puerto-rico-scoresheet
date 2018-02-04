@@ -277,6 +277,7 @@ class App extends Component {
             bonusContributor: otherArgs.contrib
         });
       } else {
+        // TODO: Handle validation message here
         return({
             ...building, 
             bonusContributor: ""

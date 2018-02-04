@@ -20,6 +20,7 @@ function BuildingBonusInput(props) {
     </FormGroup>
   )
 };
+// TODO: Add validation message to form
 
 BuildingBonusInput.propTypes = {
   inputId: PropTypes.string.isRequired, 
