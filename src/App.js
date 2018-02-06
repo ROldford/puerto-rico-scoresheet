@@ -3,7 +3,7 @@ import {Container, Row, Col} from 'reactstrap';
 import Header from './components/Header';
 import BuildingSelector from './components/BuildingSelector';
 import Scoring from './components/Scoring';
-
+// TODO: Clean up unused dependencies in package.JSON
 
 class App extends Component {
 // TODO: Move this data into a separate file (once I learn Redux)
