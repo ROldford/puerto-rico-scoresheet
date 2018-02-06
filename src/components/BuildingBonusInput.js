@@ -33,14 +33,3 @@ BuildingBonusInput.propTypes = {
 }
 
 export default BuildingBonusInput;
-
-// (      <Label for={props.inputId} hidden>
-//         {props.labelText}
-//       </Label>
-//       <Input
-//         id={props.inputId}
-//         placeholder={props.inputPlaceholder}
-//         value={props.inputValue} 
-//         bsSize="sm" 
-//         onChange={props.handleBonusInput}
-//       /> )
