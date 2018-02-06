@@ -1,4 +1,4 @@
-<!-- TODO: Redo completely for this project -->
+<!-- TODO: 1Redo completely for this project -->
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
