@@ -11,7 +11,6 @@ function BuildingBonusPanel(props) {
   const handleBonusInputCode = (e) => {props.setBonusContributor(
     parseInt(e.target.value, 10)
   )};
-  // TODO: Refactor to use generic function
   switch (props.buildingName){
     case 'Residence':
       inputFormCode = (
