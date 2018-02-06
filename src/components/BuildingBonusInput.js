@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function BuildingBonusInput(props) {
   return(
     <FormGroup>
-      <label htmlFor={props.inputId} className="sr-only">
+      <label htmlFor={props.inputId} className="mx-1 sr-only">
         {props.labelText}
       </label>
       <input 

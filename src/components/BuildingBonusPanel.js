@@ -11,6 +11,7 @@ function BuildingBonusPanel(props) {
   const handleBonusInputCode = (e) => {props.setBonusContributor(
     parseInt(e.target.value, 10)
   )};
+  // TODO: Refactor to use generic function
   switch (props.buildingName){
     case 'Residence':
       inputFormCode = (
@@ -41,10 +42,10 @@ function BuildingBonusPanel(props) {
 
   return(
     <div>
-      <hr className="small-margin"/>
+      <hr className="my-1"/>
       <Form inline className="justify-content-center">
         <FormGroup check>
-          <Label check>
+          <Label className="mx-1" check>
             <Input 
               type="checkbox" 
               checked={props.isActive} 

@@ -3,7 +3,6 @@ import {Container, Row, Col} from 'reactstrap';
 import Header from './components/Header';
 import BuildingSelector from './components/BuildingSelector';
 import Scoring from './components/Scoring';
-import InitialStateData from './InitialStateData';
 
 
 class App extends Component {

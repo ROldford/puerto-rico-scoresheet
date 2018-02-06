@@ -20,7 +20,7 @@ const Scoring = (props) => (
       </Col>
     </Row>
     <Row>
-      <Col className="small-padding">
+      <Col className="px-1">
         <ScorePanel 
           titleText="Chips" 
           scoreValue={props.vpScore.vpChips} 
@@ -29,7 +29,7 @@ const Scoring = (props) => (
           changeVpChipCount={changeType => props.changeVpChipCount(changeType)}
         />
       </Col>
-      <Col className="small-padding">
+      <Col className="px-1">
         <ScorePanel 
           titleText="Buildings" 
           scoreValue={props.vpScore.vpBuildings} 
@@ -37,7 +37,7 @@ const Scoring = (props) => (
           canChangeScore={false}
         />
       </Col>
-      <Col className="small-padding">
+      <Col className="px-1">
         <ScorePanel 
           titleText="Bonuses" 
           scoreValue={props.vpScore.vpBonuses} 

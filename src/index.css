@@ -9,19 +9,6 @@ div.bordered-round{
   padding: 15px 0px;
 }
 
-/*TODO: These 3 could be replaced with Bootstrap spacing utils*/
-div.small-padding{
-  padding: 0px 3px;
-}
-
-hr.small-margin{
-  margin: 3px 0px;
-}
-
-label{
-  margin: 0px 2px;
-}
-
 div.bg-success{
   background-color: #28a74570 !important; 
 }
