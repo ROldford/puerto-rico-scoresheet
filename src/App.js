@@ -3,222 +3,220 @@ import {Container, Row, Col} from 'reactstrap';
 import Header from './components/Header';
 import BuildingSelector from './components/BuildingSelector';
 import Scoring from './components/Scoring';
+import InitialStateData from './InitialStateData';
 
-let BUILDINGS_LIST = 
-[
-  {
-    buildingLevel: 1,
-    buildings: [
-      {
-        buildingName: "Small Indigo Plant", 
-        buildingType: "production-small", 
-        buildingPoints: 1,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Small Sugar Mill", 
-        buildingType: "production-small", 
-        buildingPoints: 1,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Small Market", 
-        buildingType: "violet", 
-        buildingPoints: 1,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Hacienda", 
-        buildingType: "violet", 
-        buildingPoints: 1,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Construction Hut", 
-        buildingType: "violet", 
-        buildingPoints: 1,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Small Warehouse", 
-        buildingType: "violet", 
-        buildingPoints: 1,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      }, 
-    ]
-  },
-  {
-    buildingLevel: 2,
-    buildings: [
-      {
-        buildingName: "Indigo Plant", 
-        buildingType: "production-large", 
-        buildingPoints: 2,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Sugar Mill", 
-        buildingType: "production-large", 
-        buildingPoints: 2,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Hospice", 
-        buildingType: "violet", 
-        buildingPoints: 2,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Office", 
-        buildingType: "violet", 
-        buildingPoints: 2,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Large Market", 
-        buildingType: "violet", 
-        buildingPoints: 2,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Large Warehouse", 
-        buildingType: "violet", 
-        buildingPoints: 2,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-    ]
-  },
-  {
-    buildingLevel: 3,
-    buildings: [
-      {
-        buildingName: "Tobacco Storage", 
-        buildingType: "production-large", 
-        buildingPoints: 3,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Coffee Roaster", 
-        buildingType: "production-large", 
-        buildingPoints: 3,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Factory", 
-        buildingType: "violet", 
-        buildingPoints: 3,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "University", 
-        buildingType: "violet", 
-        buildingPoints: 3,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Harbor", 
-        buildingType: "violet", 
-        buildingPoints: 3,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Wharf", 
-        buildingType: "violet", 
-        buildingPoints: 3,
-        isBuilt: false, 
-        isActive: true,
-        bonusContributor: 0, 
-      },
-    ]
-  },
-  {
-    buildingLevel: 4,
-    buildings: [
-      {
-        buildingName: "Guild Hall", 
-        buildingType: "violet", 
-        buildingPoints: 4,
-        isBuilt: false, 
-        isActive: false, 
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Customs House", 
-        buildingType: "violet", 
-        buildingPoints: 4,
-        isBuilt: false, 
-        isActive: false, 
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Residence", 
-        buildingType: "violet", 
-        buildingPoints: 4,
-        isBuilt: false, 
-        isActive: false,
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "City Hall", 
-        buildingType: "violet", 
-        buildingPoints: 4,
-        isBuilt: false, 
-        isActive: false, 
-        bonusContributor: 0, 
-      },
-      {
-        buildingName: "Fortress", 
-        buildingType: "violet", 
-        buildingPoints: 4,
-        isBuilt: false, 
-        isActive: false,
-        bonusContributor: 0,  
-      },
-    ]
-  },
-];
-// TODO: Move this data into a separate file (JSON?)
 
 class App extends Component {
+// TODO: Move this data into a separate file (once I learn Redux)
   state = {
     vpChips: 0, 
-    buildingColumns: BUILDINGS_LIST, 
+    buildingColumns: [
+      {
+        buildingLevel: 1,
+        buildings: [
+          {
+            buildingName: "Small Indigo Plant", 
+            buildingType: "production-small", 
+            buildingPoints: 1,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Small Sugar Mill", 
+            buildingType: "production-small", 
+            buildingPoints: 1,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Small Market", 
+            buildingType: "violet", 
+            buildingPoints: 1,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Hacienda", 
+            buildingType: "violet", 
+            buildingPoints: 1,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Construction Hut", 
+            buildingType: "violet", 
+            buildingPoints: 1,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Small Warehouse", 
+            buildingType: "violet", 
+            buildingPoints: 1,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          }, 
+        ]
+      },
+      {
+        buildingLevel: 2,
+        buildings: [
+          {
+            buildingName: "Indigo Plant", 
+            buildingType: "production-large", 
+            buildingPoints: 2,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Sugar Mill", 
+            buildingType: "production-large", 
+            buildingPoints: 2,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Hospice", 
+            buildingType: "violet", 
+            buildingPoints: 2,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Office", 
+            buildingType: "violet", 
+            buildingPoints: 2,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Large Market", 
+            buildingType: "violet", 
+            buildingPoints: 2,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Large Warehouse", 
+            buildingType: "violet", 
+            buildingPoints: 2,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+        ]
+      },
+      {
+        buildingLevel: 3,
+        buildings: [
+          {
+            buildingName: "Tobacco Storage", 
+            buildingType: "production-large", 
+            buildingPoints: 3,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Coffee Roaster", 
+            buildingType: "production-large", 
+            buildingPoints: 3,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Factory", 
+            buildingType: "violet", 
+            buildingPoints: 3,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "University", 
+            buildingType: "violet", 
+            buildingPoints: 3,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Harbor", 
+            buildingType: "violet", 
+            buildingPoints: 3,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Wharf", 
+            buildingType: "violet", 
+            buildingPoints: 3,
+            isBuilt: false, 
+            isActive: true,
+            bonusContributor: 0, 
+          },
+        ]
+      },
+      {
+        buildingLevel: 4,
+        buildings: [
+          {
+            buildingName: "Guild Hall", 
+            buildingType: "violet", 
+            buildingPoints: 4,
+            isBuilt: false, 
+            isActive: false, 
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Customs House", 
+            buildingType: "violet", 
+            buildingPoints: 4,
+            isBuilt: false, 
+            isActive: false, 
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Residence", 
+            buildingType: "violet", 
+            buildingPoints: 4,
+            isBuilt: false, 
+            isActive: false,
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "City Hall", 
+            buildingType: "violet", 
+            buildingPoints: 4,
+            isBuilt: false, 
+            isActive: false, 
+            bonusContributor: 0, 
+          },
+          {
+            buildingName: "Fortress", 
+            buildingType: "violet", 
+            buildingPoints: 4,
+            isBuilt: false, 
+            isActive: false,
+            bonusContributor: 0,  
+          },
+        ]
+      },
+    ], 
   }
-
 
   // General helper functions
   isNumber = (valueToCheck) => {
