@@ -23,5 +23,11 @@
   "devDependencies": {
     "gh-pages": "^2.0.1"
   },
-  "homepage": "http://ROldford.github.io/puerto-rico-scoresheet"
+  "homepage": "http://ROldford.github.io/puerto-rico-scoresheet",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
