@@ -1,15 +1,15 @@
 {
-  "main.css": "/puerto-rico-scoresheet/static/css/main.2a0a2f01.chunk.css",
-  "main.js": "/puerto-rico-scoresheet/static/js/main.a984ec36.chunk.js",
-  "main.js.map": "/puerto-rico-scoresheet/static/js/main.a984ec36.chunk.js.map",
-  "static/css/1.6c066d6a.chunk.css": "/puerto-rico-scoresheet/static/css/1.6c066d6a.chunk.css",
-  "static/js/1.5ab02389.chunk.js": "/puerto-rico-scoresheet/static/js/1.5ab02389.chunk.js",
-  "static/js/1.5ab02389.chunk.js.map": "/puerto-rico-scoresheet/static/js/1.5ab02389.chunk.js.map",
-  "runtime~main.js": "/puerto-rico-scoresheet/static/js/runtime~main.a7f7c626.js",
-  "runtime~main.js.map": "/puerto-rico-scoresheet/static/js/runtime~main.a7f7c626.js.map",
-  "static/css/1.6c066d6a.chunk.css.map": "/puerto-rico-scoresheet/static/css/1.6c066d6a.chunk.css.map",
-  "static/css/main.2a0a2f01.chunk.css.map": "/puerto-rico-scoresheet/static/css/main.2a0a2f01.chunk.css.map",
+  "main.css": "/puerto-rico-scoresheet/static/css/main.eb336d0e.chunk.css",
+  "main.js": "/puerto-rico-scoresheet/static/js/main.534d3864.chunk.js",
+  "main.js.map": "/puerto-rico-scoresheet/static/js/main.534d3864.chunk.js.map",
+  "runtime~main.js": "/puerto-rico-scoresheet/static/js/runtime~main.90f87cf2.js",
+  "runtime~main.js.map": "/puerto-rico-scoresheet/static/js/runtime~main.90f87cf2.js.map",
+  "static/css/2.2acb7134.chunk.css": "/puerto-rico-scoresheet/static/css/2.2acb7134.chunk.css",
+  "static/js/2.871c0961.chunk.js": "/puerto-rico-scoresheet/static/js/2.871c0961.chunk.js",
+  "static/js/2.871c0961.chunk.js.map": "/puerto-rico-scoresheet/static/js/2.871c0961.chunk.js.map",
   "index.html": "/puerto-rico-scoresheet/index.html",
-  "precache-manifest.7146691469b39eed304eaad467833b35.js": "/puerto-rico-scoresheet/precache-manifest.7146691469b39eed304eaad467833b35.js",
-  "service-worker.js": "/puerto-rico-scoresheet/service-worker.js"
+  "precache-manifest.9526f00e01bfd43a536132ff10fbd4fe.js": "/puerto-rico-scoresheet/precache-manifest.9526f00e01bfd43a536132ff10fbd4fe.js",
+  "service-worker.js": "/puerto-rico-scoresheet/service-worker.js",
+  "static/css/2.2acb7134.chunk.css.map": "/puerto-rico-scoresheet/static/css/2.2acb7134.chunk.css.map",
+  "static/css/main.eb336d0e.chunk.css.map": "/puerto-rico-scoresheet/static/css/main.eb336d0e.chunk.css.map"
 }

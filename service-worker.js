@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/puerto-rico-scoresheet/precache-manifest.7146691469b39eed304eaad467833b35.js"
+  "/puerto-rico-scoresheet/precache-manifest.9526f00e01bfd43a536132ff10fbd4fe.js"
 );
 
 workbox.clientsClaim();
