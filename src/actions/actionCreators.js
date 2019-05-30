@@ -1,11 +1,7 @@
 import * as types from './actionTypes';
 
-export function addVpChips(amount) {
-  return { type: types.ADD_VP_CHIPS, amount }
-}
-
-export function subtractVpChips(amount) {
-  return { type: types.SUBTRACT_VP_CHIPS, amount }
+export function changeVpChips(direction, amount) {
+  return { type: types.CHANGE_VP_CHIPS, direction, amount }
 }
 
 export function toggleBuildingBuilt(buildingName) {
