@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { changeVpChips } from '../actions';
+import { changeVpChips } from '../actions/actionCreators';
 import ChipChangeButtonComponent from './ChipChangeButtonComponent';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,15 +19,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 const ChipChangeButtonContainer = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChipChangeButtonComponent)
 
-ChipChangeButtonComponent.propTypes = {
-  buttonText: PropTypes.text.isRequired,
-  idValue: PropTypes.text.isRequired,
-  direction: PropTypes.text.isRequired,
+ChipChangeButtonContainer.propTypes = {
+  buttonText: PropTypes.string.isRequired,
+  idValue: PropTypes.string.isRequired,
+  direction: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired
 }
 
-export default ChipChangeButtonContainer
+export default ChipChangeButtonContainer;

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Header from './components/Header';
-import BuildingSelector from './components/BuildingSelector';
+// import BuildingSelector from './components/BuildingSelector';
 import ScoringContainer from './components/ScoringContainer';
 // TODO: Clean up unused dependencies in package.JSON
 
@@ -15,11 +15,7 @@ const App = () => (
       </Row>
       <Row>
         <Col>
-          <Scoring
-            vpScore={this.getVpScoreObject()}
-            totalVpScore={this.getTotalVpScore()}
-            changeVpChipCount={this.changeVpChipCount}
-          />
+          <ScoringContainer />
         </Col>
       </Row>
     </Container>

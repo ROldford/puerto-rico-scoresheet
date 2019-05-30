@@ -5,10 +5,11 @@ import {
   Row
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import ScoreDisplay from "./ScoreDisplay"
+import ScoreDisplay from './ScoreDisplay';
+import ChipChangeButtonContainer from './ChipChangeButtonContainer';
 import * as directions from "../actions/changeDirections";
 
-const Scoring = (props) => (
+const Scoring = ({ vpChips }) => (
   <Container>
     <Row>
       <Col>
@@ -35,7 +36,7 @@ const Scoring = (props) => (
             <Col xs="auto" className="px-1">
               <ScoreDisplay
                 titleText="Chips"
-                scoreValue={0}
+                scoreValue={vpChips}
                 isScoreLarge={false} />
             </Col>
             <Col className="px-1 text-left">
@@ -69,12 +70,15 @@ const Scoring = (props) => (
 );
 
 Scoring.propTypes = {
-  vpScore: PropTypes.shape({
-      vpChips: PropTypes.number,
-      vpBuildings: PropTypes.number,
-      vpBonuses: PropTypes.number
-    }).isRequired,
-  totalVpScore: PropTypes.number.isRequired
+  vpChips: PropTypes.number.isRequired
 }
 
 export default Scoring;
+
+
+// vpScore: PropTypes.shape({
+//     vpChips: PropTypes.number,
+//     vpBuildings: PropTypes.number,
+//     vpBonuses: PropTypes.number
+//   }).isRequired,
+// totalVpScore: PropTypes.number.isRequired

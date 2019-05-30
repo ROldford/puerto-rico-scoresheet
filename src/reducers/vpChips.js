@@ -5,22 +5,19 @@ import initialState from "./initialState";
 export default function vpChips(state=initialState.vpChips, action) {
   switch (action.type) {
     case types.CHANGE_VP_CHIPS:
-      switch (action.direction):
+      switch (action.direction) {
         case directions.ADD:
-          return Object.assign({}, state, {
-            vpChips: state.vpChips + action.amount
-          })
+          return (state + action.amount)
         case directions.SUBTRACT:
-          const newVpChips = state.vpChips - action.amount;
+          const newVpChips = state - action.amount;
           if (newVpChips > 0) {
-            return Object.assign({}, state, {
-              vpChips: newVpChips
-            })
+            return newVpChips
           } else {
-            return Object.assign({}, state, {
-              vpChips: 0
-            })
+            return 0
           }
+        default:
+          return state
+      }
     default:
       return state
   }

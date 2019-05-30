@@ -15,7 +15,7 @@ const ScoreDisplay = ({ titleText, isScoreLarge, scoreValue }) => (
 )
 
 ScoreDisplay.propTypes = {
-  titleText: PropTypes.text.isRequired,
+  titleText: PropTypes.string.isRequired,
   isScoreLarge: PropTypes.bool,
   scoreValue: PropTypes.number.isRequired,
 }
