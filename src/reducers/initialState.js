@@ -173,7 +173,12 @@ const initialState = {
       points: 4,
       isBuilt: false,
       hasWorker: false,
-      bonusInput: 0
+      bonusInput: {
+        inputId: "islandSpaces",
+        value: 0,
+        labelText: "Total occupied island spaces",
+        inputPlaceholder: "Island spaces"
+      },
     },
     {
       name: "City Hall",
@@ -189,7 +194,12 @@ const initialState = {
       points: 4,
       isBuilt: false,
       hasWorker: false,
-      bonusInput: 0
+      bonusInput: {
+        inputId: "totalWorkers",
+        value: 0,
+        labelText: "Total number of workers",
+        inputPlaceholder: "Total workers"
+      },
     }
   ]
 }
