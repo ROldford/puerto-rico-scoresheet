@@ -9,7 +9,7 @@ import ScoreDisplay from './ScoreDisplay';
 import ChipChangeButtonContainer from './ChipChangeButtonContainer';
 import * as directions from "../actions/changeDirections";
 
-const Scoring = ({ vpChips }) => (
+const ScoringLayout = ({ vpChips }) => (
   <Container>
     <Row>
       <Col>
@@ -69,11 +69,11 @@ const Scoring = ({ vpChips }) => (
   </Container>
 );
 
-Scoring.propTypes = {
+ScoringLayout.propTypes = {
   vpChips: PropTypes.number.isRequired
 }
 
-export default Scoring;
+export default ScoringLayout;
 
 
 // vpScore: PropTypes.shape({

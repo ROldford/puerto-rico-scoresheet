@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ScoringComponent from './ScoringComponent';
+import ScoringLayout from './ScoringLayout';
 
 const mapStateToProps = state => {
   return {
@@ -9,6 +9,6 @@ const mapStateToProps = state => {
 
 const ScoringContainer = connect(
   mapStateToProps
-)(ScoringComponent)
+)(ScoringLayout)
 
 export default ScoringContainer;

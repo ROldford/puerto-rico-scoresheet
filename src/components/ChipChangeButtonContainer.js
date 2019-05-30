@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { changeVpChips } from '../actions/actionCreators';
-import ChipChangeButtonComponent from './ChipChangeButtonComponent';
+import ChipChangeButtonLayout from './ChipChangeButtonLayout';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const ChipChangeButtonContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ChipChangeButtonComponent)
+)(ChipChangeButtonLayout)
 
 ChipChangeButtonContainer.propTypes = {
   buttonText: PropTypes.string.isRequired,
