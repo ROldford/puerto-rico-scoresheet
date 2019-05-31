@@ -18,11 +18,7 @@ const BuildingLayout = ({
         name={name}
         hasWorker={hasWorker}
         bonusInput={bonusInput}
-        onChange={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          onWorkerChange(name);
-        }}/>
+        onWorkerChange={onWorkerChange}/>
     );
   } else {
     bonusPanelCode="";

@@ -7,7 +7,7 @@ const BuildingBonusPanelLayout = ({
   name,
   hasWorker,
   bonusInput,
-  onChange
+  onWorkerChange
 }) => {
   let inputFormCode;
   if (bonusInput !== null) {
@@ -19,16 +19,19 @@ const BuildingBonusPanelLayout = ({
   //   parseInt(e.target.value, 10)
   // )};
 
+  // Both label and checkbox need stopPropagation
+  // or clicks will trigger toggleBuilt
   return(
     <div>
       <hr className="my-1"/>
       <Form inline className="justify-content-center">
         <FormGroup check>
-          <Label className="mx-1" check>
+          <Label className="mx-1" check onClick={e => e.stopPropagation()}>
             <Input
               type="checkbox"
               checked={hasWorker}
-              onChange={onChange}
+              onClick={e => e.stopPropagation()}
+              onChange={() => onWorkerChange(name)}
             /> 👷🏾 ?
           </Label>
         </FormGroup>
@@ -42,7 +45,7 @@ BuildingBonusPanelLayout.propTypes = {
   name: PropTypes.string.isRequired,
   hasWorker: PropTypes.bool.isRequired,
   bonusInput: PropTypes.object,
-  onChange: PropTypes.func
+  onWorkerChange: PropTypes.func
 }
 
 export default BuildingBonusPanelLayout;
