@@ -2,19 +2,25 @@ import React from 'react';
 import {FormGroup} from 'reactstrap';
 import PropTypes from "prop-types";
 
-function BuildingBonusInputLayout(props) {
+const BuildingBonusInputLayout = ({
+  name,
+  inputId,
+  value,
+  labelText,
+  inputPlaceholder
+}) => {
   return(
     <FormGroup>
-      <label htmlFor={props.inputId} className="mx-1 sr-only">
-        {props.labelText}
+      <label htmlFor={inputId} className="mx-1 sr-only">
+        {labelText}
       </label>
       <input
         type="text"
-        id={props.inputId}
-        placeholder={props.inputPlaceholder}
-        value={props.inputValue}
+        id={inputId}
+        placeholder={inputPlaceholder}
+        value={value}
         className="form-control-sm"
-        onChange={props.handleBonusInput}
+        onChange={() => console.log(`${name} input value changed`)}
         onClick={(e) => {e.stopPropagation()}}
       />
     </FormGroup>
@@ -22,14 +28,14 @@ function BuildingBonusInputLayout(props) {
 };
 
 BuildingBonusInputLayout.propTypes = {
+  name: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
-  labelText: PropTypes.string.isRequired,
-  inputPlaceholder: PropTypes.string.isRequired,
-  inputValue: PropTypes.oneOfType([
+  value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
-  ]).isRequired,
-  handleBonusInput: PropTypes.func.isRequired,
+  ]),
+  labelText: PropTypes.string.isRequired,
+  inputPlaceholder: PropTypes.string.isRequired,
 }
 
 export default BuildingBonusInputLayout;

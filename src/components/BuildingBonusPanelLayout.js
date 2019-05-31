@@ -1,7 +1,7 @@
 import React from 'react';
 import {Input, Form, FormGroup, Label} from 'reactstrap';
 import PropTypes from "prop-types";
-// import BuildingBonusInput from "./BuildingBonusInput";
+import BuildingBonusInputLayout from "./BuildingBonusInputLayout";
 
 const BuildingBonusPanelLayout = ({
   name,
@@ -11,7 +11,14 @@ const BuildingBonusPanelLayout = ({
 }) => {
   let inputFormCode;
   if (bonusInput !== null) {
-    inputFormCode = (<p>Input</p>);
+    inputFormCode = (
+      <BuildingBonusInputLayout
+        name={name}
+        inputId={bonusInput.inputId}
+        value={bonusInput.value}
+        labelText={bonusInput.labelText}
+        inputPlaceholder={bonusInput.inputPlaceholder} />
+    );
   } else {
     inputFormCode = "";
   }

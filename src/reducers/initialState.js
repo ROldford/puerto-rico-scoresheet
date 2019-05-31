@@ -175,7 +175,7 @@ const initialState = {
       hasWorker: false,
       bonusInput: {
         inputId: "islandSpaces",
-        value: 0,
+        value: "",
         labelText: "Total occupied island spaces",
         inputPlaceholder: "Island spaces"
       },
@@ -196,7 +196,7 @@ const initialState = {
       hasWorker: false,
       bonusInput: {
         inputId: "totalWorkers",
-        value: 0,
+        value: "",
         labelText: "Total number of workers",
         inputPlaceholder: "Total workers"
       },
