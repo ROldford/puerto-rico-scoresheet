@@ -1,8 +1,8 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Header from './components/Header';
-// import BuildingSelector from './components/BuildingSelector';
 import ScoringContainer from './components/ScoringContainer';
+import BuildingGridLayout from './components/BuildingGridLayout';
 // TODO: Clean up unused dependencies in package.JSON
 
 const App = () => (
@@ -16,6 +16,11 @@ const App = () => (
       <Row>
         <Col>
           <ScoringContainer />
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <BuildingGridLayout />
         </Col>
       </Row>
     </Container>
