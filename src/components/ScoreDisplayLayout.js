@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ScoreDisplay = ({ titleText, isScoreLarge, scoreValue }) => (
+const ScoreDisplayLayout = ({ titleText, isScoreLarge, scoreValue }) => (
   <>
     <p className="text-muted">{titleText}</p>
     <div>
@@ -14,10 +14,10 @@ const ScoreDisplay = ({ titleText, isScoreLarge, scoreValue }) => (
   </>
 )
 
-ScoreDisplay.propTypes = {
+ScoreDisplayLayout.propTypes = {
   titleText: PropTypes.string.isRequired,
   isScoreLarge: PropTypes.bool,
   scoreValue: PropTypes.number.isRequired,
 }
 
-export default ScoreDisplay;
+export default ScoreDisplayLayout;

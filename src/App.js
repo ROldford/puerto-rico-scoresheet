@@ -1,6 +1,6 @@
 import React from 'react';
 import {Container, Row, Col} from 'reactstrap';
-import Header from './components/Header';
+import HeaderLayout from './components/HeaderLayout';
 import ScoringContainer from './components/ScoringContainer';
 import BuildingGridLayout from './components/BuildingGridLayout';
 // TODO: Clean up unused dependencies in package.JSON
@@ -10,7 +10,7 @@ const App = () => (
     <Container fluid={true}>
       <Row>
         <Col>
-          <Header />
+          <HeaderLayout />
         </Col>
       </Row>
       <Row>

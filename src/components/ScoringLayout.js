@@ -5,7 +5,7 @@ import {
   Row
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import ScoreDisplay from './ScoreDisplay';
+import ScoreDisplayLayout from './ScoreDisplayLayout';
 import ChipChangeButtonContainer from './ChipChangeButtonContainer';
 import * as directions from "../actions/changeDirections";
 
@@ -14,7 +14,7 @@ const ScoringLayout = ({ vpChips }) => (
     <Row>
       <Col>
         <div className="text-center bordered-round">
-          <ScoreDisplay
+          <ScoreDisplayLayout
             titleText="Total Points"
             scoreValue={0}
             isScoreLarge={true}
@@ -34,7 +34,7 @@ const ScoringLayout = ({ vpChips }) => (
                 amount={1} />
             </Col>
             <Col xs="auto" className="px-1">
-              <ScoreDisplay
+              <ScoreDisplayLayout
                 titleText="Chips"
                 scoreValue={vpChips}
                 isScoreLarge={false} />
@@ -51,7 +51,7 @@ const ScoringLayout = ({ vpChips }) => (
       </Col>
       <Col className="px-1">
         <div className="text-center bordered-round">
-          <ScoreDisplay
+          <ScoreDisplayLayout
             titleText="Buildings"
             scoreValue={0}
             isScoreLarge={false} />
@@ -59,7 +59,7 @@ const ScoringLayout = ({ vpChips }) => (
       </Col>
       <Col className="px-1">
         <div className="text-center bordered-round">
-          <ScoreDisplay
+          <ScoreDisplayLayout
             titleText="Bonuses"
             scoreValue={0}
             isScoreLarge={false} />

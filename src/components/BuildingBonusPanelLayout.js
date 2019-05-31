@@ -3,7 +3,7 @@ import {Input, Form, FormGroup, Label} from 'reactstrap';
 import PropTypes from "prop-types";
 import BuildingBonusInput from "./BuildingBonusInput";
 
-function BuildingBonusPanel(props) {
+function BuildingBonusPanelLayout(props) {
   let inputFormCode;
   const inputValuePropCode = (
     (props.bonusContributor <= 0) ? "" : props.bonusContributor
@@ -14,23 +14,23 @@ function BuildingBonusPanel(props) {
   switch (props.buildingName){
     case 'Residence':
       inputFormCode = (
-        <BuildingBonusInput 
-          inputId="islandSpaces" 
-          labelText="Total occupied island spaces" 
-          inputPlaceholder="Island spaces" 
-          inputValue = {inputValuePropCode} 
-          handleBonusInput={handleBonusInputCode} 
+        <BuildingBonusInput
+          inputId="islandSpaces"
+          labelText="Total occupied island spaces"
+          inputPlaceholder="Island spaces"
+          inputValue = {inputValuePropCode}
+          handleBonusInput={handleBonusInputCode}
         />
       );
       break;
     case 'Fortress':
       inputFormCode = (
-        <BuildingBonusInput 
-          inputId="totalWorkers" 
-          labelText="Total number of workers" 
-          inputPlaceholder="Total workers" 
-          inputValue = {inputValuePropCode} 
-          handleBonusInput={handleBonusInputCode} 
+        <BuildingBonusInput
+          inputId="totalWorkers"
+          labelText="Total number of workers"
+          inputPlaceholder="Total workers"
+          inputValue = {inputValuePropCode}
+          handleBonusInput={handleBonusInputCode}
         />
       );
       break;
@@ -45,9 +45,9 @@ function BuildingBonusPanel(props) {
       <Form inline className="justify-content-center">
         <FormGroup check>
           <Label className="mx-1" check>
-            <Input 
-              type="checkbox" 
-              checked={props.isActive} 
+            <Input
+              type="checkbox"
+              checked={props.isActive}
               onChange={props.handleActive}
             /> 👷🏾 ?
           </Label>
@@ -58,15 +58,15 @@ function BuildingBonusPanel(props) {
   )
 };
 
-BuildingBonusPanel.propTypes = {
-  buildingName: PropTypes.string.isRequired, 
+BuildingBonusPanelLayout.propTypes = {
+  buildingName: PropTypes.string.isRequired,
   bonusContributor: PropTypes.oneOfType([
-    PropTypes.string, 
+    PropTypes.string,
     PropTypes.number
-  ]).isRequired, 
-  isActive: PropTypes.bool.isRequired, 
-  handleActive: PropTypes.func.isRequired, 
-  setBonusContributor: PropTypes.func, 
+  ]).isRequired,
+  isActive: PropTypes.bool.isRequired,
+  handleActive: PropTypes.func.isRequired,
+  setBonusContributor: PropTypes.func,
 }
 
-export default BuildingBonusPanel;
+export default BuildingBonusPanelLayout;
