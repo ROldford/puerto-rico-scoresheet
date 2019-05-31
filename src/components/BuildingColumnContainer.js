@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleBuildingBuilt } from '../actions/actionCreators';
+import { toggleBuildingBuilt, toggleBuildingHasWorker } from '../actions/actionCreators';
 import BuildingColumnLayout from './BuildingColumnLayout';
 
 const getMatchingBuildings = (buildings, columnNumber) => {
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onBuildingClick: buildingName => {
       dispatch(toggleBuildingBuilt(buildingName))
+    },
+    onWorkerChange: buildingName => {
+      dispatch(toggleBuildingHasWorker(buildingName))
     }
   }
 }

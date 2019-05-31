@@ -1,17 +1,28 @@
 import React from 'react';
 import PropTypes from "prop-types";
-// import BuildingBonusPanel from "./BuildingBonusPanel";
+import BuildingBonusPanelLayout from "./BuildingBonusPanelLayout";
 
-const BuildingLayout = ({ name, isBuilt, hasWorker, bonusInput, onClick }) => {
+const BuildingLayout = ({
+  name,
+  isBuilt,
+  hasWorker,
+  bonusInput,
+  onClick,
+  onWorkerChange
+}) => {
   const builtStatusStyle = (isBuilt ? "bg-success" : "bg-light");
   let bonusPanelCode;
   if (hasWorker !== null) {
     bonusPanelCode=(
-      // <BuildingBonusPanel
-      //   buildingName={buildingName}
-      //   hasWorker={hasWorker}
-      //   bonusInput={bonusInput} />
-      <p>Bonus</p>
+      <BuildingBonusPanelLayout
+        name={name}
+        hasWorker={hasWorker}
+        bonusInput={bonusInput}
+        onChange={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          onWorkerChange(name);
+        }}/>
     );
   } else {
     bonusPanelCode="";
@@ -34,7 +45,8 @@ BuildingLayout.propTypes = {
   isBuilt: PropTypes.bool.isRequired,
   hasWorker: PropTypes.bool,
   bonusInput: PropTypes.object,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  onWorkerChange: PropTypes.func
 }
 
 export default BuildingLayout;

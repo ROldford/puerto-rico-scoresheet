@@ -7,7 +7,12 @@ import {
 import PropTypes from "prop-types";
 import BuildingLayout from "./BuildingLayout";
 
-const BuildingColumnLayout = ({ buildingLevel, buildings, onBuildingClick }) => (
+const BuildingColumnLayout = ({
+  buildingLevel,
+  buildings,
+  onBuildingClick,
+  onWorkerChange
+}) => (
   <Col>
     <Card className="text-center">
       <CardHeader>
@@ -20,7 +25,8 @@ const BuildingColumnLayout = ({ buildingLevel, buildings, onBuildingClick }) => 
           <BuildingLayout
             key={building.name}
             {...building}
-            onClick={() => onBuildingClick(building.name)} />
+            onClick={() => onBuildingClick(building.name)}
+            onWorkerChange={onWorkerChange} />
         )
       }
     )}

@@ -1,43 +1,23 @@
 import React from 'react';
 import {Input, Form, FormGroup, Label} from 'reactstrap';
 import PropTypes from "prop-types";
-import BuildingBonusInput from "./BuildingBonusInput";
+// import BuildingBonusInput from "./BuildingBonusInput";
 
-function BuildingBonusPanelLayout(props) {
+const BuildingBonusPanelLayout = ({
+  name,
+  hasWorker,
+  bonusInput,
+  onChange
+}) => {
   let inputFormCode;
-  const inputValuePropCode = (
-    (props.bonusContributor <= 0) ? "" : props.bonusContributor
-  );
-  const handleBonusInputCode = (e) => {props.setBonusContributor(
-    parseInt(e.target.value, 10)
-  )};
-  switch (props.buildingName){
-    case 'Residence':
-      inputFormCode = (
-        <BuildingBonusInput
-          inputId="islandSpaces"
-          labelText="Total occupied island spaces"
-          inputPlaceholder="Island spaces"
-          inputValue = {inputValuePropCode}
-          handleBonusInput={handleBonusInputCode}
-        />
-      );
-      break;
-    case 'Fortress':
-      inputFormCode = (
-        <BuildingBonusInput
-          inputId="totalWorkers"
-          labelText="Total number of workers"
-          inputPlaceholder="Total workers"
-          inputValue = {inputValuePropCode}
-          handleBonusInput={handleBonusInputCode}
-        />
-      );
-      break;
-    default:
-      inputFormCode = "";
-      break;
+  if (bonusInput !== null) {
+    inputFormCode = (<p>Input</p>);
+  } else {
+    inputFormCode = "";
   }
+  // const handleBonusInputCode = (e) => {props.setBonusContributor(
+  //   parseInt(e.target.value, 10)
+  // )};
 
   return(
     <div>
@@ -47,8 +27,8 @@ function BuildingBonusPanelLayout(props) {
           <Label className="mx-1" check>
             <Input
               type="checkbox"
-              checked={props.isActive}
-              onChange={props.handleActive}
+              checked={hasWorker}
+              onChange={onChange}
             /> 👷🏾 ?
           </Label>
         </FormGroup>
@@ -59,14 +39,10 @@ function BuildingBonusPanelLayout(props) {
 };
 
 BuildingBonusPanelLayout.propTypes = {
-  buildingName: PropTypes.string.isRequired,
-  bonusContributor: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number
-  ]).isRequired,
-  isActive: PropTypes.bool.isRequired,
-  handleActive: PropTypes.func.isRequired,
-  setBonusContributor: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  hasWorker: PropTypes.bool.isRequired,
+  bonusInput: PropTypes.object,
+  onChange: PropTypes.func
 }
 
 export default BuildingBonusPanelLayout;
