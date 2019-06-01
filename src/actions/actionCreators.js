@@ -12,6 +12,6 @@ export function toggleBuildingHasWorker(buildingName) {
   return { type: types.TOGGLE_BUILDING_HAS_WORKER, buildingName }
 }
 
-export function setBonusInput(inputValue) {
-  return { type: types.SET_BONUS_INPUT, inputValue }
+export function setBonusInput(buildingName, inputValue) {
+  return { type: types.SET_BONUS_INPUT, buildingName, inputValue }
 }

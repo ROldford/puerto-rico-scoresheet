@@ -8,7 +8,8 @@ const BuildingLayout = ({
   hasWorker,
   bonusInput,
   onClick,
-  onWorkerChange
+  onWorkerChange,
+  onBonusInputChange
 }) => {
   const builtStatusStyle = (isBuilt ? "bg-success" : "bg-light");
   let bonusPanelCode;
@@ -18,7 +19,8 @@ const BuildingLayout = ({
         name={name}
         hasWorker={hasWorker}
         bonusInput={bonusInput}
-        onWorkerChange={onWorkerChange}/>
+        onWorkerChange={onWorkerChange}
+        onBonusInputChange={onBonusInputChange} />
     );
   } else {
     bonusPanelCode="";
@@ -42,7 +44,8 @@ BuildingLayout.propTypes = {
   hasWorker: PropTypes.bool,
   bonusInput: PropTypes.object,
   onClick: PropTypes.func.isRequired,
-  onWorkerChange: PropTypes.func
+  onWorkerChange: PropTypes.func,
+  onBonusInputChange: PropTypes.func
 }
 
 export default BuildingLayout;

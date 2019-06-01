@@ -11,7 +11,8 @@ const BuildingColumnLayout = ({
   buildingLevel,
   buildings,
   onBuildingClick,
-  onWorkerChange
+  onWorkerChange,
+  onBonusInputChange
 }) => (
   <Col>
     <Card className="text-center">
@@ -26,7 +27,8 @@ const BuildingColumnLayout = ({
             key={building.name}
             {...building}
             onClick={() => onBuildingClick(building.name)}
-            onWorkerChange={onWorkerChange} />
+            onWorkerChange={onWorkerChange}
+            onBonusInputChange={onBonusInputChange} />
         )
       }
     )}
@@ -34,7 +36,11 @@ const BuildingColumnLayout = ({
 );
 
 BuildingColumnLayout.propTypes = {
-  buildings: PropTypes.array.isRequired
+  buildingLevel: PropTypes.number.isRequired,
+  buildings: PropTypes.array.isRequired,
+  onBuildingClick: PropTypes.func.isRequired,
+  onWorkerChange: PropTypes.func,
+  onBonusInputChange: PropTypes.func,
 };
 
 export default BuildingColumnLayout;

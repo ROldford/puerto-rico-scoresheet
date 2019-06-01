@@ -25,7 +25,9 @@ export default function buildings(state=initialState.buildings, action) {
       return state.map((building) => {
         if (building.name === action.buildingName) {
           return Object.assign({}, building, {
-            bonusInput: action.inputValue
+            bonusInput: Object.assign({}, building.bonusInput, {
+              value: action.inputValue
+            })
           })
         }
         return building

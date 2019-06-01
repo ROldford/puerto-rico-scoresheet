@@ -7,7 +7,8 @@ const BuildingBonusPanelLayout = ({
   name,
   hasWorker,
   bonusInput,
-  onWorkerChange
+  onWorkerChange,
+  onBonusInputChange
 }) => {
   let inputFormCode;
   if (bonusInput !== null) {
@@ -17,7 +18,8 @@ const BuildingBonusPanelLayout = ({
         inputId={bonusInput.inputId}
         value={bonusInput.value}
         labelText={bonusInput.labelText}
-        inputPlaceholder={bonusInput.inputPlaceholder} />
+        inputPlaceholder={bonusInput.inputPlaceholder}
+        onBonusInputChange={onBonusInputChange} />
     );
   } else {
     inputFormCode = "";
@@ -52,7 +54,8 @@ BuildingBonusPanelLayout.propTypes = {
   name: PropTypes.string.isRequired,
   hasWorker: PropTypes.bool.isRequired,
   bonusInput: PropTypes.object,
-  onWorkerChange: PropTypes.func
+  onWorkerChange: PropTypes.func.isRequired,
+  onBonusInputChange: PropTypes.func
 }
 
 export default BuildingBonusPanelLayout;

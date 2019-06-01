@@ -2,12 +2,18 @@ import React from 'react';
 import {FormGroup} from 'reactstrap';
 import PropTypes from "prop-types";
 
+const sanitizeInputValue = (value) => {
+  const parsedValue = parseInt(value, 10);
+  return (isNaN(parsedValue) ? '' : parsedValue);
+}
+
 const BuildingBonusInputLayout = ({
   name,
   inputId,
   value,
   labelText,
-  inputPlaceholder
+  inputPlaceholder,
+  onBonusInputChange
 }) => {
   return(
     <FormGroup>
@@ -20,7 +26,9 @@ const BuildingBonusInputLayout = ({
         placeholder={inputPlaceholder}
         value={value}
         className="form-control-sm"
-        onChange={() => console.log(`${name} input value changed`)}
+        onChange={
+          (e) => onBonusInputChange(name, sanitizeInputValue(e.target.value))
+        }
         onClick={(e) => {e.stopPropagation()}}
       />
     </FormGroup>
@@ -36,6 +44,7 @@ BuildingBonusInputLayout.propTypes = {
   ]),
   labelText: PropTypes.string.isRequired,
   inputPlaceholder: PropTypes.string.isRequired,
+  onBonusInputChange: PropTypes.func.isRequired
 }
 
 export default BuildingBonusInputLayout;
