@@ -1,15 +1,11 @@
-const buildingTypes = {
-  PRODUCTION_SMALL: 'PRODUCTION_SMALL',
-  PRODUCTION_LARGE: 'PRODUCTION_LARGE',
-  VIOLET: 'VIOLET',
-}
+import { PRODUCTION_LARGE, PRODUCTION_SMALL, VIOLET } from "./buildingTypes"
 
 const initialState = {
   vpChips: 0,
   buildings: [
     {
       name: "Small Indigo Plant",
-      type: buildingTypes.PRODUCTION_SMALL,
+      type: PRODUCTION_SMALL,
       points: 1,
       isBuilt: false,
       hasWorker: null,
@@ -17,7 +13,7 @@ const initialState = {
     },
     {
       name: "Small Sugar Mill",
-      type: buildingTypes.PRODUCTION_SMALL,
+      type: PRODUCTION_SMALL,
       points: 1,
       isBuilt: false,
       hasWorker: null,
@@ -25,7 +21,7 @@ const initialState = {
     },
     {
       name: "Small Market",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 1,
       isBuilt: false,
       hasWorker: null,
@@ -33,7 +29,7 @@ const initialState = {
     },
     {
       name: "Hacienda",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 1,
       isBuilt: false,
       hasWorker: null,
@@ -41,7 +37,7 @@ const initialState = {
     },
     {
       name: "Construction Hut",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 1,
       isBuilt: false,
       hasWorker: null,
@@ -49,7 +45,7 @@ const initialState = {
     },
     {
       name: "Small Warehouse",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 1,
       isBuilt: false,
       hasWorker: null,
@@ -57,7 +53,7 @@ const initialState = {
     },
     {
       name: "Indigo Plant",
-      type: buildingTypes.PRODUCTION_LARGE,
+      type: PRODUCTION_LARGE,
       points: 2,
       isBuilt: false,
       hasWorker: null,
@@ -65,7 +61,7 @@ const initialState = {
     },
     {
       name: "Sugar Mill",
-      type: buildingTypes.PRODUCTION_LARGE,
+      type: PRODUCTION_LARGE,
       points: 2,
       isBuilt: false,
       hasWorker: null,
@@ -73,7 +69,7 @@ const initialState = {
     },
     {
       name: "Hospice",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 2,
       isBuilt: false,
       hasWorker: null,
@@ -81,7 +77,7 @@ const initialState = {
     },
     {
       name: "Office",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 2,
       isBuilt: false,
       hasWorker: null,
@@ -89,7 +85,7 @@ const initialState = {
     },
     {
       name: "Large Market",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 2,
       isBuilt: false,
       hasWorker: null,
@@ -97,7 +93,7 @@ const initialState = {
     },
     {
       name: "Large Warehouse",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 2,
       isBuilt: false,
       hasWorker: null,
@@ -105,7 +101,7 @@ const initialState = {
     },
     {
       name: "Tobacco Storage",
-      type: buildingTypes.PRODUCTION_LARGE,
+      type: PRODUCTION_LARGE,
       points: 3,
       isBuilt: false,
       hasWorker: null,
@@ -113,7 +109,7 @@ const initialState = {
     },
     {
       name: "Coffee Roaster",
-      type: buildingTypes.PRODUCTION_LARGE,
+      type: PRODUCTION_LARGE,
       points: 3,
       isBuilt: false,
       hasWorker: null,
@@ -121,7 +117,7 @@ const initialState = {
     },
     {
       name: "Factory",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 3,
       isBuilt: false,
       hasWorker: null,
@@ -129,7 +125,7 @@ const initialState = {
     },
     {
       name: "University",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 3,
       isBuilt: false,
       hasWorker: null,
@@ -137,7 +133,7 @@ const initialState = {
     },
     {
       name: "Harbor",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 3,
       isBuilt: false,
       hasWorker: null,
@@ -145,7 +141,7 @@ const initialState = {
     },
     {
       name: "Wharf",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 3,
       isBuilt: false,
       hasWorker: null,
@@ -153,7 +149,7 @@ const initialState = {
     },
     {
       name: "Guild Hall",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 4,
       isBuilt: false,
       hasWorker: false,
@@ -161,7 +157,7 @@ const initialState = {
     },
     {
       name: "Customs House",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 4,
       isBuilt: false,
       hasWorker: false,
@@ -169,7 +165,7 @@ const initialState = {
     },
     {
       name: "Residence",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 4,
       isBuilt: false,
       hasWorker: false,
@@ -182,7 +178,7 @@ const initialState = {
     },
     {
       name: "City Hall",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 4,
       isBuilt: false,
       hasWorker: false,
@@ -190,7 +186,7 @@ const initialState = {
     },
     {
       name: "Fortress",
-      type: buildingTypes.VIOLET,
+      type: VIOLET,
       points: 4,
       isBuilt: false,
       hasWorker: false,

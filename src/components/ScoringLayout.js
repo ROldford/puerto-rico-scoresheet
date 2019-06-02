@@ -9,14 +9,19 @@ import ScoreDisplayLayout from './ScoreDisplayLayout';
 import ChipChangeButtonContainer from './ChipChangeButtonContainer';
 import * as directions from "../actions/changeDirections";
 
-const ScoringLayout = ({ vpChips, buildingsScore }) => (
+const ScoringLayout = ({
+  vpChips,
+  buildingsScore,
+  bonusScore,
+  totalScore
+}) => (
   <Container>
     <Row>
       <Col>
         <div className="text-center bordered-round">
           <ScoreDisplayLayout
             titleText="Total Points"
-            scoreValue={0}
+            scoreValue={totalScore}
             isScoreLarge={true}
           />
         </div>
@@ -61,7 +66,7 @@ const ScoringLayout = ({ vpChips, buildingsScore }) => (
         <div className="text-center bordered-round">
           <ScoreDisplayLayout
             titleText="Bonuses"
-            scoreValue={0}
+            scoreValue={bonusScore}
             isScoreLarge={false} />
         </div>
       </Col>
@@ -71,7 +76,9 @@ const ScoringLayout = ({ vpChips, buildingsScore }) => (
 
 ScoringLayout.propTypes = {
   vpChips: PropTypes.number.isRequired,
-  buildingsScore: PropTypes.number.isRequired
+  buildingsScore: PropTypes.number.isRequired,
+  bonusScore: PropTypes.number.isRequired,
+  totalScore: PropTypes.number.isRequired
 }
 
 export default ScoringLayout;
