@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = () => (
+const HeaderLayout = () => (
   <div className="text-center bordered-round">
       <h4>Puerto Rico Scoresheet</h4>
       <p className="lead text-muted">
@@ -9,4 +9,4 @@ const Header = () => (
   </div>
 );
 
-export default Header;
+export default HeaderLayout;
