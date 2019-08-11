@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ajv": "^6.10.1",
+    "ajv": "^6.10.2",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-redux": "^7.1.0",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^3.1.0",
     "reactstrap": "^8.0.1",
     "redux": "^4.0.4"
   },
@@ -23,7 +23,7 @@
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.1.1",
     "redux-devtools": "^3.5.0"
   },
   "homepage": "http://ROldford.github.io/puerto-rico-scoresheet",
